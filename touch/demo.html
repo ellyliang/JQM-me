@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport"  content="width=device-width,user-scalable=no">
+	<meta name="Keywords" content="TouchSlide,大话主席, javascript触屏滑动特效插件, 移动终端滑动特效">
+	<meta name="copyright" content="Copyright (c) TouchSlide 大话主席 2013">
+	<meta name="Description" content="TouchSlide 是纯javascript打造的触屏滑动特效插件，面向手机、平板电脑等移动终端，能实现触屏焦点图、触屏Tab切换、触屏多图切换等常用效果。插件开源、体积小、简单实用、功能强大，是你架构移动终端网站的重要选择！">
+	<title>TouchSlide 案例演示 触屏滑动特效插件 大话主席 </title>
+</head>
+
+<style type="text/css">
+	/* css 重置 */
+	body, p, input, h1, h2, h3, h4, h5, h6, ul, li, dl, dt, dd, form { margin: 0; padding: 0; list-style: none; vertical-align: middle; font-weight:normal; }
+	img { border:0; margin: 0; padding: 0;   }
+	body { color: #000; -webkit-user-select: none; -webkit-text-size-adjust: none; font:normal 16px/200% "微软雅黑", helvetica, arial; text-align:left;   }
+	header, section, footer { display: block; margin: 0; padding: 0 }
+	a{text-decoration:none;color:#000;}
+	
+
+	body{ background:#f4f4f4;  }
+	/* 头部 */
+	header{  background:#F5AB38; padding-bottom:10px; border-bottom:3px solid #CF7F21;  }
+	header .logo{ padding:10px 0 5px 10px;  color:#fff;  font-style:italic; font-weight:bold; text-shadow:1px 1px 1px #965e18; font-size:12px; }
+	header .logo a{ font-size:30px; line-height:30px; color:#fff;  }
+	nav{ color:#cb524b; text-shadow:1px 1px 0 #965e18; font-size:0}
+	nav a{ display:inline-block; width:25%; text-align:center; color:#fff; font-size:14px; vertical-align:top; }
+
+
+	/* 尾部 */
+	footer{ text-align:center; padding:10px 0; line-height:18px; font-size:14px; }
+
+	/* 内容 */
+	#content{ padding:10px 0; background:#fff;  }
+	/* 效果导航 */
+	.effectNav{  }
+	.effectNav h3{ padding:5px 10px; background:#fdedd5; color:#B06B00; border-top:1px solid #fbddb0;   
+		background: -webkit-gradient(linear, 0 0, 0 bottom, from(#fdedd5), to(#FFFFFF));
+		background: -webkit-linear-gradient(#fdedd5, #FFFFFF);
+		background: -moz-linear-gradient(#fdedd5, #FFFFFF);
+		background: -ms-linear-gradient(#fdedd5, #FFFFFF);
+		background: -o-linear-gradient(#fdedd5, #FFFFFF);
+		background: linear-gradient(#fdedd5, #FFFFFF);
+		-pie-background: linear-gradient(#fdedd5, #FFFFFF);
+	}
+	.effectNav ul{ font-size:0; padding:10px 0 30px 0;   }
+	.effectNav li{ display:inline-block; font-size:12px; padding:0 10px; margin:10px 0 0 10px;  background:#eee;  }
+	.effectNav li.new{ background:#ddfdcc;  }
+
+	.notice{ font-size:14px; line-height:20px; padding:10px 0 0 10px;  border-top:1px dotted #ddd; color:#c00;   }
+	.notice span{ display:block; width:85px; height:85px; background:url(images/indIcons.png) -20px -327px no-repeat;   }
+</style>
+
+<body>
+	<!-- 头部 -->
+	<header>
+			<h1 class="logo"><a href="http://www.superslide2.com/TouchSlide/">TouchSlide</a> 触屏滑动特效插件</h1>
+			<nav>
+				<a href="index.html">首&nbsp;&nbsp;页</a><a target="_blank" href="http://www.superslide2.com/TouchSlide/howToUse.html">如何使用</a><a href="param.html">查看参数</a><a href="demo.html">案例演示</a><a target="_blank" href="http://www.superslide2.com/TouchSlide/downLoad.html">下载页面</a><a target="_blank" href="http://www.superslide2.com/blog/?page_id=12">交流反馈</a><a target="_blank" href="http://www.superslide2.com/">SuperSlide</a>
+			</nav>
+		</div>
+	</header>
+
+	<div id="content">
+			
+			<!-- 效果导航 -->
+			<div class="effectNav">
+					<h3>基础效果</h3>
+					<ul>
+						<li><a href="demo/1.1left.html">1.1 左滑动</a></li>
+						<li><a href="demo/1.2leftLoop.html">1.2 左循环滑动</a></li>
+					</ul>
+					<h3>综合效果</h3>
+					<ul>
+						<li class="new" title="v1.1新demo"><a href="demo/2.1web.html">2.1 综合手机网站效果[new]</a></li>
+						<li><a href="demo/2.2picScroll.html">2.2 多图滑动</a></li>
+					</ul>
+					<h3>焦点图示例</h3>
+					<ul>
+						<li><a href="demo/3.1focus.html">3.1 焦点图切换加载</a></li>
+						<li><a href="demo/3.2txFocus.html">3.2 腾讯焦点图</a></li>
+						<li><a href="demo/3.3tbFocus.html">3.3 淘宝焦点图</a></li>
+						<li><a href="demo/3.4sohuFocus.html">3.4 搜狐焦点图</a></li>
+						<li class="new" title="v1.1新demo"><a href="demo/3.5zsyFocus.html">3.5 焦点图自适应宽</a></li>
+					</ul>
+					<h3>Tab切换示例</h3>
+					<ul>
+						<li><a href="demo/4.1txTab.html">4.1 腾讯Tab</a></li>
+						<li><a href="demo/4.2wyTab.html">4.2 网易Tab</a></li>
+						<li class="new" title="v1.1新demo"><a href="demo/4.3zsyTab.html">4.3 Tab自适应高度</a></li>
+					</ul>
+			</div>
+
+
+
+			<div class="notice">
+				请用手机访问本页面</br>扫描二维码立刻访问：
+				<span></span>
+			</div>
+	</div>
+
+	<footer>
+		Copyright ©2013 大话主席 <a target="_blank" href="http://www.superslide2.com/">SuperSlide2.com</a>
+	</footer>
+
+</body>
+</html>
+<script type="text/javascript">
+//百度统计代码
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fa630f96b6a9dd549675d26373853f7f1' type='text/javascript'%3E%3C/script%3E"));
+</script>

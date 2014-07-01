@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport"  content="width=device-width,user-scalable=no">
+	<meta name="copyright" content="Copyright (c) TouchSlide 大话主席 2013">
+	<meta name="Keywords" content="TouchSlide, javascript触屏滑动特效插件, 移动终端滑动特效,触屏图片滑动, 触屏Tab切换,触屏多图切换等">
+	<meta name="description" content="TouchSlide, javascript触屏滑动特效插件, 移动终端滑动特效,触屏图片滑动, 触屏Tab切换,触屏多图切换等">
+	<title>TouchSlide 3.3淘宝焦点图 触屏滑动特效插件 大话主席 </title>
+</head>
+
+
+<script src="../TouchSlide.1.1.js"></script>
+<!-- 若想了解更详细使用方法，请访问 http://www.superslide2.com/touchSlide/ --> 
+
+<style type="text/css">
+	/* css 重置 */
+	body, p, input, h1, h2, h3, h4, h5, h6, ul, li, dl, dt, dd, form { margin: 0; padding: 0; list-style: none; vertical-align: middle; font-weight:normal; }
+	img { border:0; margin: 0; padding: 0;   }
+	body { color: #000; -webkit-user-select: none; -webkit-text-size-adjust: none; font:normal 16px/200% "微软雅黑", helvetica, arial; text-align:left;   }
+	header, section, footer { display: block; margin: 0; padding: 0 }
+	a{text-decoration:none;color:#000;}
+	
+	body{ background:#f4f4f4;  }
+	/* 头部 */
+	header{  background:#F5AB38; padding-bottom:10px; border-bottom:3px solid #CF7F21;  }
+	header .logo{ padding:10px 0 5px 10px;  color:#fff;  font-style:italic; font-weight:bold; text-shadow:1px 1px 1px #965e18; font-size:12px; }
+	header .logo a{ font-size:30px; line-height:30px; color:#fff;  }
+
+	/* 尾部 */
+	footer{ text-align:center; padding:10px 0; line-height:18px; font-size:14px; }
+
+	/* 内容 */
+	#content{ padding:10px 0; background:#fff;  }
+	.path{ padding:0 0 5px 5px;   }
+
+	/* 效果导航 */
+	.effectNav{ margin-top:10px;  border-top:1px solid #666; background:#999; padding-bottom:10px;  }
+	.effectNav h3{ padding:0 10px; background:#ddd; background:#333; color:#fff;  }
+	.effectNav ul{ font-size:0;  }
+	.effectNav li{ display:inline-block; font-size:12px; padding:0 10px; margin:10px 0 0 10px;  background:#cdcdcd;  }
+	.effectNav li.new{ background:#fce8cd;  }
+
+
+	/* 本例子css -------------------------------------- */
+	.slideBox{ position:relative; overflow:hidden; margin:10px auto;  max-width:560px;/* 设置焦点图最大宽度 */ }
+	.slideBox .hd{ position:absolute; height:28px; line-height:28px; bottom:0; right:0; z-index:1; }
+	.slideBox .hd li{ display:inline-block; width:5px; height:5px; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; background:#333; text-indent:-9999px; overflow:hidden; margin:0 6px;   }
+	.slideBox .hd li.on{ background:#fff;  }
+	.slideBox .bd{ position:relative; z-index:0; }
+	.slideBox .bd li{ position:relative; text-align:center;  }
+	.slideBox .bd li img{ background:url(images/loading.gif) center center no-repeat;  vertical-align:top; width:100%;/* 图片宽度100%，达到自适应效果 */}
+	.slideBox .bd li a{ -webkit-tap-highlight-color:rgba(0,0,0,0);  }  /* 去掉链接触摸高亮 */
+	.slideBox .bd li .tit{ display:block; width:100%;  position:absolute; bottom:0; text-indent:10px; height:28px; line-height:28px; background:url(images/focusBg.png) repeat-x; color:#fff;  text-align:left;  }
+	
+</style>
+
+<body>
+	<!-- 头部 -->
+	<header>
+			<h1 class="logo"><a href="http://www.superslide2.com/TouchSlide/">TouchSlide</a> 触屏滑动特效插件</h1>
+	</header>
+
+	<div id="content">
+			<div class="path">3.3焦点图自适应宽（旋转屏幕看看）<br/>图片最大宽度560px，根据需要自行设置</div>
+			
+			<!-- 本例主要代码 Start ================================ -->
+			<div id="slideBox" class="slideBox">
+
+				<div class="bd">
+					<ul>
+							<li>
+								<a class="pic" href="#"><img src="images/1b.jpg" /></a>
+								<a class="tit" href="#">墨西哥教师罢工 与警察激烈冲突</a>
+							</li>
+							<li>
+								<a class="pic" href="#"><img src="images/2b.jpg"/></a>
+								<a class="tit" href="#">日右翼游行纪念钓岛"国有化"周年</a>
+							</li>
+							<li>
+								<a class="pic" href="#"><img src="images/3b.jpg"/></a>
+								<a class="tit" href="#">女兵竞选美国小姐鼓励女性自强</a>
+							</li>
+							<li>
+								<a class="pic" href="#"><img src="images/4b.jpg"/></a>
+								<a class="tit" href="#">济南现“最窄人行道” 仅0.2米宽</a>
+							</li>
+					</ul>
+				</div>
+
+				<div class="hd">
+					<ul></ul>
+				</div>
+			</div>
+			<script type="text/javascript">
+				TouchSlide({ 
+					slideCell:"#slideBox",
+					titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+					mainCell:".bd ul", 
+					effect:"leftLoop", 
+					autoPage:true,//自动分页
+					autoPlay:true //自动播放
+				});
+			</script>
+			<!-- 本例主要代码 End ================================ -->
+
+
+			<!-- 效果导航 -->
+			<div class="effectNav">
+					<h3>效果导航</h3>
+					<ul>
+						<li><a href="1.1left.html">1.1 左滑动</a></li>
+						<li><a href="1.2leftLoop.html">1.2 左循环滑动</a></li>
+					</ul>
+					<ul>
+						<li class="new" title="v1.1新demo"><a href="2.1web.html">2.1 综合手机网站效果[new]</a></li>
+						<li><a href="2.2picScroll.html">2.2 多图滑动</a></li>
+					</ul>
+					<ul>
+						<li><a href="3.1focus.html">3.1 焦点图切换加载</a></li>
+						<li><a href="3.2txFocus.html">3.2 腾讯焦点图</a></li>
+						<li><a href="3.3tbFocus.html">3.3 淘宝焦点图</a></li>
+						<li><a href="3.4sohuFocus.html">3.4 搜狐焦点图</a></li>
+						<li class="new" title="v1.1新demo"><a href="3.5zsyFocus.html">3.5 焦点图自适应宽</a></li>
+					</ul>
+					<ul>
+						<li><a href="4.1txTab.html">4.1 腾讯Tab</a></li>
+						<li><a href="4.2wyTab.html">4.2 网易Tab</a></li>
+						<li class="new" title="v1.1新demo"><a href="4.3zsyTab.html">4.3 Tab自适应高度</a></li>
+					</ul>
+			</div>
+	</div>
+
+	<footer>
+		Copyright ©2013 大话主席 <a target="_blank" href="http://www.superslide2.com/">SuperSlide2.com</a>
+	</footer>
+
+</body>
+</html>
+<script type="text/javascript">
+//百度统计代码
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fa630f96b6a9dd549675d26373853f7f1' type='text/javascript'%3E%3C/script%3E"));
+</script>

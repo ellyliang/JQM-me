@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport"  content="width=device-width,user-scalable=no">
+	<meta name="copyright" content="Copyright (c) TouchSlide 大话主席 2013">
+	<meta name="Keywords" content="TouchSlide, javascript触屏滑动特效插件, 移动终端滑动特效,触屏图片滑动, 触屏Tab切换,触屏多图切换等">
+	<meta name="description" content="TouchSlide, javascript触屏滑动特效插件, 移动终端滑动特效,触屏图片滑动, 触屏Tab切换,触屏多图切换等">
+	<title>TouchSlide 4.2网易Tab 触屏滑动特效插件 大话主席 </title>
+</head>
+
+
+
+<script src="../TouchSlide.1.1.js"></script>
+<!-- 若想了解更详细使用方法，请访问 http://www.superslide2.com/touchSlide/ -->
+
+<style type="text/css">
+	/* css 重置 */
+	body, p, input, h1, h2, h3, h4, h5, h6, ul, li, dl, dt, dd, form { margin: 0; padding: 0; list-style: none; vertical-align: middle; font-weight:normal; }
+	img { border:0; margin: 0; padding: 0;   }
+	body { color: #000; -webkit-user-select: none; -webkit-text-size-adjust: none; font:normal 16px/200% "微软雅黑", helvetica, arial; text-align:left;   }
+	header, section, footer { display: block; margin: 0; padding: 0 }
+	a{text-decoration:none;color:#000;}
+	
+	body{ background:#f4f4f4;  }
+	/* 头部 */
+	header{  background:#F5AB38; padding-bottom:10px; border-bottom:3px solid #CF7F21;  }
+	header .logo{ padding:10px 0 5px 10px;  color:#fff;  font-style:italic; font-weight:bold; text-shadow:1px 1px 1px #965e18; font-size:12px; }
+	header .logo a{ font-size:30px; line-height:30px; color:#fff;  }
+
+	/* 尾部 */
+	footer{ text-align:center; padding:10px 0; line-height:18px; font-size:14px; }
+
+	/* 内容 */
+	#content{ padding:10px 0; background:#fff;  }
+	.path{ padding:0 0 5px 5px;   }
+
+	/* 效果导航 */
+	.effectNav{ margin-top:10px;  border-top:1px solid #666; background:#999; padding-bottom:10px;  }
+	.effectNav h3{ padding:0 10px; background:#ddd; background:#333; color:#fff;  }
+	.effectNav ul{ font-size:0;  }
+	.effectNav li{ display:inline-block; font-size:12px; padding:0 10px; margin:10px 0 0 10px;  background:#cdcdcd;  }
+	.effectNav li.new{ background:#fce8cd;  }
+
+
+	/* 本例子css -------------------------------------- */
+	.tabBox .hd{ height:40px; line-height:40px; padding:0 10px; font-size:20px; background:#F3F3F3; border-top:2px solid #CECECE;  }
+	.tabBox .hd ul{ overflow:hidden;  }
+	.tabBox .hd ul li{ float:left; margin:0 10px; color:#515151;  }
+	.tabBox .hd ul .on{ border-bottom:2px solid #BA2636; color:#BA2636;  }
+	.tabBox .hd ul .on a{ display:block; /* 修复Android 4.0.x 默认浏览器当前样色无效果bug */  }
+	.tabBox .bd ul{ padding:10px 0 10px 10px;  }
+	.tabBox .bd li{ height:33px; line-height:33px;   }
+	.tabBox .bd a{ -webkit-tap-highlight-color:rgba(0,0,0,0); }  /* 去掉链接触摸高亮 */
+	.tabBox .bd li a{ color:#555;  }
+	.tabBox .bd .t{ height:85px; overflow:hidden;   }
+	.tabBox .bd .t .pic{ width:130px; float:left;    }
+	.tabBox .bd .t .con{ margin-left:130px; line-height:20px;   }
+	.tabBox .bd .t .con p{ font-size:12px; color:#999;  }
+</style>
+
+<body>
+	<!-- 头部 -->
+	<header>
+			<h1 class="logo"><a href="http://www.superslide2.com/TouchSlide/">TouchSlide</a> 触屏滑动特效插件</h1>
+	</header>
+
+	<div id="content">
+			<div class="path">当前效果：基础 - 4.2 网易Tab</div>
+			
+			<!-- 本例主要代码 Start ================================ -->
+			<div id="leftTabBox" class="tabBox">
+				<div class="hd">
+					<ul>
+						<li><a href="#">财经</a></li>
+						<li><a href="#">股票</a></li>
+						<li><a href="#">商业</a></li>
+						<li><a href="#">房产</a></li>
+					</ul>
+				</div>
+				<div class="bd">
+						<ul>
+							<li class="t">
+								<div class="pic"><img src="images/wyNewPic.jpg" /></div>
+								<div class="con">
+									<a class="tit">[曝光台]景区票价被指假优惠</a>
+									<p>峨眉山先涨35元再降20元;长假阶段前后而非当时优惠.</p>
+								</div>
+							</li>
+							<li><a href="#">台官员:将驱离进入钓岛大陆船</a></li>
+							<li><a href="#">陈云长子吁学江泽民思想方法</a></li>
+							<li><a href="#">央视批抗日剧目:比着俗争着二</a></li>
+							<li><a href="#">网友:离3次结3次可避税国五条</a></li>
+							<li><a href="#">足疗女子自称东北人引发血案</a></li>
+						</ul>
+						<ul>
+							<li><a href="#">官方明确感染H7N9高危人群</a></li>
+							<li><a href="#">台官员:将驱离进入钓岛大陆船</a></li>
+							<li><a href="#">陈云长子吁学江泽民思想方法</a></li>
+							<li><a href="#">央视批抗日剧目:比着俗争着二</a></li>
+							<li><a href="#">网友:离3次结3次可避税国五条</a></li>
+							<li><a href="#">足疗女子自称东北人引发血案</a></li>
+							<li><a href="#">男性神秘“根浴”会所被调查</a></li>
+							<li><a href="#">女孩一年吃掉48公里长方便面</a></li>
+						</ul>
+						<ul>
+							<li><a href="#">日:沈阳军区部队开赴中朝边境</a></li>
+							<li><a href="#">印度核潜艇经我周边未被发现</a></li>
+							<li><a href="#">中国航母战斗群重防空轻反潜</a></li>
+							<li><a href="#">日本军车爆车胎造成一死一伤</a></li>
+							<li><a href="#">韩媒称朝鲜导弹反复出仓回仓</a></li>
+							<li><a href="#">美国空军因缺钱大量战机停飞</a></li>
+							<li><a href="#">外媒:中国神盾舰多处落后日本</a></li>
+							<li><a href="#">朝鲜东部海岸遍布导弹发射场</a></li>
+						</ul>
+						<ul>
+							<li><a href="#">农业占GDP低政府支持力度大</a></li>
+							<li><a href="#">林志玲:至今珍藏本山送的手绢</a></li>
+							<li><a href="#">五粮液高管年薪超茅台近一倍</a></li>
+							<li><a href="#">视频:朝鲜导弹反复出舱</a></li>
+							<li><a href="#">《我是歌手》明晚决赛开战</a></li>
+							<li><a href="#">皖新传媒一年花13亿委托理财</a></li>
+							<li><a href="#">男子驾车在高速路遭飞石袭击</a></li>
+							<li><a href="#">东北低温寒冷程度历史罕见</a></li>
+						</ul>
+				</div>
+			</div>
+			<script type="text/javascript">TouchSlide({ slideCell:"#leftTabBox" });</script>
+			<!-- 本例主要代码 End ================================ -->
+
+
+			<!-- 效果导航 -->
+			<div class="effectNav">
+					<h3>效果导航</h3>
+					<ul>
+						<li><a href="1.1left.html">1.1 左滑动</a></li>
+						<li><a href="1.2leftLoop.html">1.2 左循环滑动</a></li>
+					</ul>
+					<ul>
+						<li class="new" title="v1.1新demo"><a href="2.1web.html">2.1 综合手机网站效果[new]</a></li>
+						<li><a href="2.2picScroll.html">2.2 多图滑动</a></li>
+					</ul>
+					<ul>
+						<li><a href="3.1focus.html">3.1 焦点图切换加载</a></li>
+						<li><a href="3.2txFocus.html">3.2 腾讯焦点图</a></li>
+						<li><a href="3.3tbFocus.html">3.3 淘宝焦点图</a></li>
+						<li><a href="3.4sohuFocus.html">3.4 搜狐焦点图</a></li>
+						<li class="new" title="v1.1新demo"><a href="3.5zsyFocus.html">3.5 焦点图自适应宽</a></li>
+					</ul>
+					<ul>
+						<li><a href="4.1txTab.html">4.1 腾讯Tab</a></li>
+						<li><a href="4.2wyTab.html">4.2 网易Tab</a></li>
+						<li class="new" title="v1.1新demo"><a href="4.3zsyTab.html">4.3 Tab自适应高度</a></li>
+					</ul>
+			</div>
+
+	</div>
+
+	<footer>
+		Copyright ©2013 大话主席 <a target="_blank" href="http://www.superslide2.com/">SuperSlide2.com</a>
+	</footer>
+
+</body>
+</html>
+<script type="text/javascript">
+//百度统计代码
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fa630f96b6a9dd549675d26373853f7f1' type='text/javascript'%3E%3C/script%3E"));
+</script>

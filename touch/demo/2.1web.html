@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport"  content="width=device-width,user-scalable=no">
+	<meta name="copyright" content="Copyright (c) TouchSlide 大话主席 2013">
+	<meta name="Keywords" content="TouchSlide, javascript触屏滑动特效插件, 移动终端滑动特效,触屏图片滑动, 触屏Tab切换,触屏多图切换等">
+	<meta name="description" content="TouchSlide, javascript触屏滑动特效插件, 移动终端滑动特效,触屏图片滑动, 触屏Tab切换,触屏多图切换等">
+	<title>TouchSlide 2.1综合手机网站效果 触屏滑动特效插件 大话主席 </title>
+</head>
+
+
+<script src="../TouchSlide.1.1.js"></script>
+<!-- 若想了解更详细使用方法，请访问 http://www.superslide2.com/touchSlide/ -->
+
+<style type="text/css">
+	/* css 重置 */
+	body, p, input, h1, h2, h3, h4, h5, h6, ul, li, dl, dt, dd, form { margin: 0; padding: 0; list-style: none; vertical-align: middle; font-weight:normal; }
+	img { border:0; margin: 0; padding: 0;   }
+	body { color: #000; -webkit-user-select: none; -webkit-text-size-adjust: none; font:normal 16px/200% "微软雅黑", helvetica, arial; text-align:left;   }
+	header, section, footer { display: block; margin: 0; padding: 0 }
+	a{text-decoration:none;color:#000;}
+
+	/* 效果导航 */
+	.effectNav{ margin-top:10px;  border-top:1px solid #666; background:#999; padding-bottom:10px;  }
+	.effectNav h3{ padding:0 10px; background:#ddd; background:#333; color:#fff;  }
+	.effectNav ul{ font-size:0;  }
+	.effectNav li{ display:inline-block; font-size:12px; padding:0 10px; margin:10px 0 0 10px;  background:#cdcdcd;  }
+	.effectNav li.new{ background:#fce8cd;  }
+
+
+	/* 本例子css ----------------------- */
+
+	body{ background:#f4f4f4;  }
+	/* 头部 */
+	header{  background:#F5AB38; padding-bottom:10px; border-bottom:3px solid #CF7F21;  }
+	header .logo{ padding:10px 0 5px 10px;  color:#fff;  font-style:italic; font-weight:bold; text-shadow:1px 1px 1px #965e18; font-size:12px; }
+	header .logo a{ font-size:30px; line-height:30px; color:#fff;  }
+	nav{ color:#cb524b; text-shadow:1px 1px 0 #965e18; font-size:0}
+	nav a{ display:inline-block; width:25%; text-align:center; color:#fff; font-size:14px; vertical-align:top; }
+
+	/* 头条 */
+	.headNew{ padding-top:10px;  }
+	.headNew,.subNew{ text-align:center;  }
+	.headNew a{ color:#B63B34; font-size:20px;  }
+	.subNew a{ color:#999;  font-size:14px; margin:0 5px;   }
+
+	/* 焦点图 */
+	.slideBox{ position:relative; overflow:hidden; margin:10px auto;  max-width:560px;/* 设置焦点图最大宽度 */ }
+	.slideBox .hd{ position:absolute; height:28px; line-height:28px; bottom:0; right:0; z-index:1; }
+	.slideBox .hd li{ display:inline-block; width:5px; height:5px; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; background:#333; text-indent:-9999px; overflow:hidden; margin:0 6px;   }
+	.slideBox .hd li.on{ background:#fff;  }
+	.slideBox .bd{ position:relative; z-index:0; }
+	.slideBox .bd li{ position:relative; text-align:center;  }
+	.slideBox .bd li img{ background:url(images/loading.gif) center center no-repeat;  vertical-align:top; width:100%;/* 图片宽度100%，达到自适应效果 */}
+	.slideBox .bd li a{ -webkit-tap-highlight-color:rgba(0,0,0,0);  }  /* 去掉链接触摸高亮 */
+	.slideBox .bd li .tit{ display:block; width:100%;  position:absolute; bottom:0; text-indent:10px; height:28px; line-height:28px; background:url(images/focusBg.png) repeat-x; color:#fff;  text-align:left;  }
+	
+	/* Tab切换 */
+	.tabBox{ margin:10px auto;   }
+	.tabBox .hd{ height:40px; line-height:40px; font-size:20px; overflow:hidden; background:#eee; border-top:1px solid #ccc;  padding:0 10px;  }
+	.tabBox .hd h3{ float:left; font-size:24px; }
+	.tabBox .hd h3 span{color:#ccc; font-family:Georgia; margin-left:10px;  }
+	.tabBox .hd ul{ float:right;  }
+	.tabBox .hd ul li{ float:left;  padding:0 5px; vertical-align:top;  }
+	.tabBox .hd ul li.on a{ color:#B63B34; display:block; height:38px; line-height:38px;   border-bottom:2px solid #B63B34;  }
+	.tabBox .bd ul{ padding:10px;  }
+	.tabBox .bd ul li{ border-bottom:1px dotted #ddd;  }
+	.tabBox .bd li a{ -webkit-tap-highlight-color:rgba(0,0,0,0); }  /* 去掉链接触摸高亮 */
+	.readMore{ display:block; height:30px; line-height:30px; margin:10px auto 20px auto;  text-align:center; text-decoration:underline;   }
+
+	/* 多图滚动 */
+	.scrollBox{ margin:10px auto; text-align:center;  }
+	.scrollBox .bd li{ width:50%; float:left; font-size:14px; }
+	.scrollBox .bd li a{ -webkit-tap-highlight-color:rgba(0,0,0,0); }  /* 去掉链接触摸高亮 */
+	.scrollBox .bd li img{ width:140px; background:url(images/loading.gif) #fff center center no-repeat;  }
+	.scrollBox .hd{ height:20px; overflow:hidden; font-size:0; }
+	.scrollBox .hd ul{ display:inline-block; padding-top:5px; }	
+	.scrollBox .hd li{ display:inline-block; width:8px; height:8px; background:#D0D0D0; margin:0 5px; vertical-align:top; overflow:hidden; 
+	-webkit-border-radius:8px; -moz-border-radius:8px; border-radius:8px; 
+	}
+	.scrollBox .hd .on{ background:#BA2636;  }
+	.scrollBox .prev,.scrollBox .next{ display:inline-block; width:25px; height:20px; background:url(images/wyIcons.png) no-repeat; overflow:hidden; margin:0 5px;  vertical-align:top; }
+	.scrollBox .next{ background-position:-105px 0; }
+
+</style>
+
+<body>
+	<!-- 头部 -->
+	<header>
+			<h1 class="logo"><a href="http://www.superslide2.com/TouchSlide/">TouchSlide</a> 触屏滑动特效插件</h1>
+			<nav>
+					<a target="_blank" href="http://www.superslide2.com/TouchSlide/">首&nbsp;&nbsp;页</a>
+					<a target="_blank" href="http://www.superslide2.com/TouchSlide/howToUse.html">如何使用</a>
+					<a href="../param.html">查看参数</a>
+					<a target="_blank" href="http://www.superslide2.com/TouchSlide/demo.html">案例演示</a>
+					<a target="_blank" href="http://www.superslide2.com/TouchSlide/downLoad.html">下载页面</a>
+					<a target="_blank" href="http://www.superslide2.com/blog/?page_id=12">交流反馈</a>
+					<a target="_blank" href="http://www.superslide2.com/">SuperSlide</a>
+			</nav>
+	</header>
+
+	<!-- 头条 -->
+	<h3 class="headNew"><a href="http://www.superslide2.com/touchSlide/">TouchSlide 综合手机网站效果</a></h3>
+	<h5 class="subNew"><a href="http://www.superslide2.com">[作者：大话主席]</a><a href="http://www.superslide2.com/touchSlide/">[官方网站]</a></h5>
+
+	<!-- 焦点图 -->
+	<div id="slideBox" class="slideBox">
+
+		<div class="bd">
+			<ul>
+					<li>
+						<a class="pic" href="#"><img src="images/1b.jpg" /></a>
+						<a class="tit" href="#">墨西哥教师罢工 与警察激烈冲突</a>
+					</li>
+					<li>
+						<a class="pic" href="#"><img src="images/2b.jpg"/></a>
+						<a class="tit" href="#">日右翼游行纪念钓岛"国有化"周年</a>
+					</li>
+					<li>
+						<a class="pic" href="#"><img src="images/3b.jpg"/></a>
+						<a class="tit" href="#">女兵竞选美国小姐鼓励女性自强</a>
+					</li>
+					<li>
+						<a class="pic" href="#"><img src="images/4b.jpg"/></a>
+						<a class="tit" href="#">济南现“最窄人行道” 仅0.2米宽</a>
+					</li>
+			</ul>
+		</div>
+
+		<div class="hd">
+			<ul></ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		TouchSlide({ 
+			slideCell:"#slideBox",
+			titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+			mainCell:".bd ul", 
+			effect:"leftLoop", 
+			autoPage:true,//自动分页
+			autoPlay:true //自动播放
+		});
+	</script>
+
+
+	<!-- Tab切换（高度自适应示范） -->
+	<div id="tabBox1" class="tabBox">
+		<div class="hd">
+			<h3><a href="#">新闻</a><span>News</span></h3>
+			<ul>
+				<li><a href="javascript:void(0)">国内</a></li>
+				<li><a href="javascript:void(0)">国际</a></li>
+				<li><a href="javascript:void(0)">时事</a></li>
+			</ul>
+		</div>
+		<div class="bd" id="tabBox1-bd">
+			<div class="con"><!-- 高度自适应需添加外层 -->
+				<ul>
+					<li><a href="#">官方明确感染H7N9高危人群</a></li>
+					<li><a href="#">台官员:将驱离进入钓岛大陆船</a></li>
+					<li><a href="#">陈云长子吁学江泽民思想方法</a></li>
+					<li><a href="#">央视批抗日剧目:比着俗争着二</a></li>
+					<li><a href="#">网友:离3次结3次可避税国五条</a></li>
+					<li><a href="#">足疗女子自称东北人引发血案</a></li>
+					<li><a href="#">男性神秘“根浴”会所被调查</a></li>
+					<li><a href="#">女孩一年吃掉48公里长方便面</a></li>
+				</ul>
+			</div>
+			<div class="con"><!-- 高度自适应需添加外层 -->
+				<ul>
+					<li><a href="#">日:沈阳军区部队开赴中朝边境</a></li>
+					<li><a href="#">印度核潜艇经我周边未被发现</a></li>
+					<li><a href="#">中国航母战斗群重防空轻反潜</a></li>
+					<li><a href="#">日本军车爆车胎造成一死一伤</a></li>
+				</ul>
+			</div>
+			<div class="con"><!-- 高度自适应需添加外层 -->
+				<ul>
+					<li><a href="#">农业占GDP低政府支持力度大</a></li>
+					<li><a href="#">林志玲:至今珍藏本山送的手绢</a></li>
+					<li><a href="#">五粮液高管年薪超茅台近一倍</a></li>
+					<li><a href="#">视频:朝鲜导弹反复出舱</a></li>
+					<li><a href="#">《我是歌手》明晚决赛开战</a></li>
+					<li><a href="#">皖新传媒一年花13亿委托理财</a></li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+	<a class="readMore" href="#">进入频道&gt;&gt;</a>
+	<script type="text/javascript">
+	TouchSlide( { slideCell:"#tabBox1",
+		endFun:function(i){ //高度自适应
+			var bd = document.getElementById("tabBox1-bd");
+			bd.parentNode.style.height = bd.children[i].children[0].offsetHeight+"px";
+			if(i>0)bd.parentNode.style.transition="200ms";//添加动画效果
+		}
+	} );</script>
+
+
+
+	<!-- 多图滚动 -->
+	<div id="scrollBox" class="scrollBox">
+		<div class="bd">
+				<ul>
+					<li>
+						<a class="pic" href="#"><img _src="images/wyPic1.jpg" src="images/blank.png" /></a>
+						<p>李玟亲赴红十字会赈灾</p>
+					</li>
+					<li>
+						<a class="pic" href="#"><img _src="images/wyPic2.jpg" src="images/blank.png" /></a>
+						<p>日皇太子妃10年首出访</p>
+					</li>
+				</ul>
+
+				<ul>
+					<li>
+						<a class="pic" href="#"><img _src="images/wyPic3.jpg" src="images/blank.png" /></a>
+						<p>武僧一龙一拳击败日本</p>
+					</li>
+					<li>
+						<a class="pic" href="#"><img _src="images/wyPic4.jpg" src="images/blank.png" /></a>
+						<p>被免职的雅安乡官</p>
+					</li>
+				</ul>
+
+				<ul>
+					<li>
+						<a class="pic" href="#"><img _src="images/wyPic5.jpg" src="images/blank.png" /></a>
+						<p>火箭2分险胜雷霆总分1-3</p>
+					</li>
+					<li>
+						<a class="pic" href="#"><img _src="images/wyPic6.jpg" src="images/blank.png" /></a>
+						<p>杨幂着透视长裙亮相</p>
+					</li>
+				</ul>
+		</div>
+		<div class="hd">
+				<span class="prev"></span>
+				<ul></ul>
+				<span class="next"></span>
+		</div>
+
+	</div><!-- scrollBox E -->
+	<script type="text/javascript">
+		TouchSlide({ 
+			slideCell:"#scrollBox",
+			titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+			effect:"leftLoop", 
+			autoPage:true, //自动分页
+			switchLoad:"_src" //切换加载，真实图片路径为"_src" 
+		});
+	</script>
+
+
+
+	<!-- Tab切换 -->
+	<div id="tabBox2" class="tabBox">
+		<div class="hd">
+			<h3><a href="#">体育</a><span>News</span></h3>
+			<ul>
+				<li><a href="javascript:void(0)">足球</a></li>
+				<li><a href="javascript:void(0)">NBA</a></li>
+				<li><a href="javascript:void(0)">国内</a></li>
+			</ul>
+		</div>
+		<div class="bd">
+				<ul>
+					<li><a href="#">官方明确感染H7N9高危人群</a></li>
+					<li><a href="#">台官员:将驱离进入钓岛大陆船</a></li>
+					<li><a href="#">陈云长子吁学江泽民思想方法</a></li>
+					<li><a href="#">央视批抗日剧目:比着俗争着二</a></li>
+					<li><a href="#">网友:离3次结3次可避税国五条</a></li>
+					<li><a href="#">足疗女子自称东北人引发血案</a></li>
+					<li><a href="#">男性神秘“根浴”会所被调查</a></li>
+					<li><a href="#">女孩一年吃掉48公里长方便面</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">日:沈阳军区部队开赴中朝边境</a></li>
+					<li><a href="#">印度核潜艇经我周边未被发现</a></li>
+					<li><a href="#">中国航母战斗群重防空轻反潜</a></li>
+					<li><a href="#">日本军车爆车胎造成一死一伤</a></li>
+					<li><a href="#">韩媒称朝鲜导弹反复出仓回仓</a></li>
+					<li><a href="#">美国空军因缺钱大量战机停飞</a></li>
+					<li><a href="#">外媒:中国神盾舰多处落后日本</a></li>
+					<li><a href="#">朝鲜东部海岸遍布导弹发射场</a></li>
+				</ul>
+				<ul>
+					<li><a href="#">农业占GDP低政府支持力度大</a></li>
+					<li><a href="#">林志玲:至今珍藏本山送的手绢</a></li>
+					<li><a href="#">五粮液高管年薪超茅台近一倍</a></li>
+					<li><a href="#">视频:朝鲜导弹反复出舱</a></li>
+					<li><a href="#">《我是歌手》明晚决赛开战</a></li>
+					<li><a href="#">皖新传媒一年花13亿委托理财</a></li>
+					<li><a href="#">男子驾车在高速路遭飞石袭击</a></li>
+					<li><a href="#">东北低温寒冷程度历史罕见</a></li>
+				</ul>
+		</div>
+	</div>
+	<a class="readMore" href="#">进入频道&gt;&gt;</a>
+	<script type="text/javascript">TouchSlide( { slideCell:"#tabBox2" } );</script>
+
+
+			<!-- 效果导航 -->
+			<div class="effectNav">
+					<h3>效果导航</h3>
+					<ul>
+						<li><a href="1.1left.html">1.1 左滑动</a></li>
+						<li><a href="1.2leftLoop.html">1.2 左循环滑动</a></li>
+					</ul>
+					<ul>
+						<li class="new" title="v1.1新demo"><a href="2.1web.html">2.1 综合手机网站效果[new]</a></li>
+						<li><a href="2.2picScroll.html">2.2 多图滑动</a></li>
+					</ul>
+					<ul>
+						<li><a href="3.1focus.html">3.1 焦点图切换加载</a></li>
+						<li><a href="3.2txFocus.html">3.2 腾讯焦点图</a></li>
+						<li><a href="3.3tbFocus.html">3.3 淘宝焦点图</a></li>
+						<li><a href="3.4sohuFocus.html">3.4 搜狐焦点图</a></li>
+						<li class="new" title="v1.1新demo"><a href="3.5zsyFocus.html">3.5 焦点图自适应宽</a></li>
+					</ul>
+					<ul>
+						<li><a href="4.1txTab.html">4.1 腾讯Tab</a></li>
+						<li><a href="4.2wyTab.html">4.2 网易Tab</a></li>
+						<li class="new" title="v1.1新demo"><a href="4.3zsyTab.html">4.3 Tab自适应高度</a></li>
+					</ul>
+			</div>
+
+</body>
+</html>
+<script type="text/javascript">
+//百度统计代码
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fa630f96b6a9dd549675d26373853f7f1' type='text/javascript'%3E%3C/script%3E"));
+</script>

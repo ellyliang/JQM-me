@@ -1,0 +1,49 @@
+@import "global.less";
+@import "common.less";
+
+body, html {
+	#gradient .vertical(#333, #000);
+}
+.nav {
+	padding-top: .5em;
+	a {
+		padding-left: .5em;
+	}
+} 
+.content {
+	margin: 10px 10px 90px;
+	.title {
+		padding-left: 5px;
+		color: @white;
+		font-size: .9em;
+		border-left: 4px solid @pink;
+	}
+	ul {
+		padding: 10px 0 20px 5px;
+	}
+	li {
+		padding-top: .2em;
+		color: @white;
+		font-size: .8em;
+	}
+	i {
+		display: inline-block;
+		.size(20px, 20px);
+		text-align: center;
+		vertical-align: top;
+	}
+	a {
+		display: inline-block;
+		width: 90%;
+		color: @white;
+		&:hover {
+			color: @pink;
+		}
+	}
+	.motto {
+		color: @white;
+		font-size: .8em;
+		padding: 1em .5em 1.5em;
+	}
+
+}

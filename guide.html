@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>useLess</title>
+	<meta charset="UTF-8">
+	<meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"/>
+	<link rel="stylesheet" href="css/guide.css">
+</head>
+<body>
+	<article class="instroduce">
+		<a class="author-link" id="J-link" href="/index.html">
+			<img src="images/snail.png" alt="">
+			<p>useLess</p>
+		</a>
+	</article>
+
+	<script>
+	var link = document.getElementById('J-link'),
+		tabp = document.getElementsByTagName('p')[0];
+
+	link.onmouseenter = function() {
+		tabp.innerHTML = "Click!^_^";
+	};
+	link.onmouseleave = function() {
+		tabp.innerHTML = "useLess";
+	};
+	</script>
+</body>
+</html>
+
+

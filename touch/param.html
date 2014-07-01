@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Keywords" content="TouchSlide,大话主席, javascript触屏滑动特效插件, 移动终端滑动特效,触屏图片滑动, 触屏Tab切换,触屏多图切换等">
+<meta name="Description" content="TouchSlide 原生javascript打造的触屏滑动特效插件，面向手机、平板电脑等触摸设备，能实现触屏焦点图、触屏Tab切换、触屏多图切换等常用效果。是你架构手机网站的重要选择！">
+<title>查看参数-TouchSlide 触屏滑动特效插件 大话主席 </title>
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+ --><link href="default.css" rel="stylesheet" type="text/css">
+</head>
+
+
+<body>
+	<!-- 头部 -->
+	<div id="header">
+			<div class="nav"><a target="_blank" href="http://www.superslide2.com/TouchSlide/">首&nbsp;&nbsp;页</a><a target="_blank" href="http://www.superslide2.com/TouchSlide/howToUse.html">如何使用</a><a href="param.html">查看参数</a><a href="demo.html">案例演示</a><a target="_blank" href="http://www.superslide2.com/TouchSlide/downLoad.html">下载页面</a><a target="_blank" href="http://www.superslide2.com/blog/?page_id=12">交流反馈</a><a target="_blank" href="http://www.superslide2.com/">SuperSlide</a></div>
+			<h1 class="logo"><a target="_blank" href="http://www.superslide2.com/TouchSlide/">TouchSlide</a> - 大话主席</h1>
+		</div>
+	</div>
+
+	<div id="content" class="paramPage">
+
+
+<p class="ps">
+TouchSlide 可以说是 SuperSlide 手机简化版，不同的地方在于：<br/>
+1、TouchSlide是纯javascript开发的，不依赖任何js库，鉴于此，TouchSlide调用方法和SuperSlide有点不同。<br/>
+调用方法为：<b>TouchSlide({slideCell:"#slider",effect:"leftLoop"});</b>（slideCell必须为id对象）;同样效果，SuperSlide调用方法为：jQuery("#slider").slide({ effect:"leftLoop" });<br/>
+<i>2、为了方便使用，我用js模拟了简单的jQuery选择器，只支持“#”“.”“标签名称”，用空格隔开。</i>除了slideCell必须用id选择器外，其它titCell等都可以使用，例如：titCell:".title li"<br/>
+3、除了上述2个不同，其它是一致的，想了解更多可以下载demo研究。
+</p>
+
+		<div class="paramWrap">
+		 
+
+		
+			<table class="param" border="0" cellspacing="0" cellpadding="0">
+			  <tr class="imp">
+				<th width="100">参数</th>
+				<th width="40">版本</th>
+				<th width="80">默认值</th>
+				<th>说明</th>
+				<th width="50">详细</th>
+			  </tr>
+
+			  <tr class="imp">
+				<td class="t"><b>slideCell</b></td>
+				<td class="t">1.0</td>
+				<td class="t">"#touchSlide"</td>
+				<td class="intro">容器对象<i>（执行效果的对象，必须是id对象！）</i></td>
+				<td class="t"><a class="link" target="_blank" href="images/TouchSlide-titCell_mainCell.png">图解&gt;&gt;</a></td>
+			  </tr>
+
+			  <tr class="imp">
+				<td class="t"><b>titCell</b></td>
+				<td class="t">1.0</td>
+				<td class="t">".hd li"</td>
+				<td class="intro">导航元素对象</td>
+				<td class="t"><a class="link" target="_blank" href="images/TouchSlide-titCell_mainCell.png">图解&gt;&gt;</a></td>
+			  </tr>
+
+			  <tr class="imp">
+				<td class="t"><b>mainCell</b></td>
+				<td class="t">1.0</td>
+				<td class="t">".bd"</td>
+				<td class="intro">切换元素的包裹层对象</td>
+				<td class="t"><a class="link" target="_blank" href="images/TouchSlide-titCell_mainCell.png">图解&gt;&gt;</a></td>
+			  </tr>
+
+			  <tr class="imp">
+				<td class="t"><b>autoPage</b></td>
+				<td class="t">1.0</td>
+				<td class="t">false</td>
+				<td class="intro">系统自动分页，<i>需结合titCell使用，若为true，则titCell为导航元素的包裹层对象</i></td>
+				<td class="t"><a class="link" target="_blank" href="images/autoPage.png">图解&gt;&gt;</a></td>
+			  </tr>
+
+			  <tr class="imp">
+				<td class="t">effect</td>
+				<td class="t">1.0</td>
+				<td class="t">"fade"</td>
+				<td class="intro">效果 ||  left：左滚动；||   leftLoop：左循环滚动；</td>
+				<td class="t"></td>
+			  </tr>
+
+			  <tr class="imp">
+				<td class="t">autoPlay</td>
+				<td class="t">1.0</td>
+				<td class="t">false</td>
+				<td class="intro">自动运行</td>
+				<td class="t"></td>
+			  </tr>
+
+			  <tr class="imp">
+				<td class="t">delayTime</td>
+				<td class="t">1.0</td>
+				<td class="t">200</td>
+				<td class="intro">毫秒；切换效果持续时间（执行一次效果用多少毫秒）。</td>
+				<td class="t"></td>
+			  </tr>
+
+			  <tr class="imp">
+				<td class="t">interTime</td>
+				<td class="t">1.0</td>
+				<td class="t">2500</td>
+				<td class="intro">毫秒；自动运行间隔（隔多少毫秒后执行下一个效果）</td>
+				<td class="t"></td>
+			  </tr>
+
+			  <tr>
+				<td class="t">switchLoad</td>
+				<td class="t">1.0</td>
+				<td class="t">null</td>
+				<td class="intro">内容切换加载，暂时只支持图片，必须配合后台程序使用。当为图片的时候switchLoad为图片实际路径的属性名称，例如switchLoad:"_src"</td>
+				<td class="t"><a class="link" target="_blank" href="http://www.superslide2.com/otherDemo/T2.5/switchLoad.html">详解&gt;&gt;</a></td>
+			  </tr>
+			  <tr>
+				<td class="t">startFun</td>
+				<td class="t">1.0</td>
+				<td class="t">null</td>
+				<td class="intro">每次切换效果开始时执行函数，用于处理特殊情况或创建更多效果。用法 satrtFun:function(i,c){ }； 其中i为当前分页，c为总页数</td>
+				<td class="t"><a class="link" target="_blank" href="http://www.superslide2.com/otherDemo/T2.2/funIntro.html">详解&gt;&gt;</a></td>
+			  </tr>
+			  <tr>
+				<td class="t">endFun</td>
+				<td class="t">1.0</td>
+				<td class="t">null</td>
+				<td class="intro">每次切换效果结束时执行函数，用于处理特殊情况或创建更多效果。用法 endFun:function(i,c){ }； 其中i为当前分页，c为总页数</td>
+				<td class="t"><a class="link" target="_blank" href="http://www.superslide2.com/otherDemo/T2.2/funIntro.html">详解&gt;&gt;</a></td>
+			  </tr>
+			  <tr>
+				<td class="t">pageStateCell</td>
+				<td class="t">1.0</td>
+				<td class="t">".pageState"</td>
+				<td class="intro">分页状态对象，用于显示分页状态，例如：2/3</td>
+				<td class="t"></td>
+			  </tr>
+
+			  <tr class="n">
+				<td class="t">prevCell</td>
+				<td class="t">1.0</td>
+				<td class="t">".prev"</td>
+				<td class="intro">前一个/页按钮对象。</td>
+				<td class="t"></td>
+			  </tr>
+
+			  <tr class="n">
+				<td class="t">nextCell</td>
+				<td class="t">1.0</td>
+				<td class="t">".next"</td>
+				<td class="intro">后一个/页按钮对象。</td>
+				<td class="t"></td>
+			  </tr>
+
+			  <tr>
+				<td class="t">pnLoop</td>
+				<td class="t">1.0</td>
+				<td class="t">true</td>
+				<td class="intro">前/后按钮是否继续循环，若为false则当翻动到最前/后页时，前/后按钮点击无效，同时增加prevStop/nextStop类名控制样色</td>
+				<td class="t"></td>
+			  </tr>
+
+			  <tr class="n">
+				<td class="t">defaultIndex</td>
+				<td class="t">1.0</td>
+				<td class="t">0</td>
+				<td class="intro">默认的当前位置索引。0是第一个； defaultIndex:1 时，相当于从第2个开始执行</td>
+				<td class="t"></td>
+			  </tr>
+
+			  <tr class="n">
+				<td class="t">titOnClassName</td>
+				<td class="t">1.0</td>
+				<td class="t">"on"</td>
+				<td class="intro">当前titCell位置自动增加的class名称</td>
+				<td class="t"></td>
+			  </tr>
+			</table>
+			<script type="text/javascript">$(".param tr").hover(function(){ $(this).addClass("on") },function(){ $(this).removeClass("on") });</script>
+		</div><!-- paramWrap E -->
+
+
+	</div><!-- content E -->
+
+	<div id="footer">Copyright ©2013 大话主席 <a target="_blank" href="http://www.superslide2.com/">SuperSlide2.com</a></div>
+</body>
+</html>
+<script type="text/javascript">
+//百度统计代码
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fa630f96b6a9dd549675d26373853f7f1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+	
