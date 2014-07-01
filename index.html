@@ -4,78 +4,26 @@
 	<title>useLess</title>
 	<meta charset="UTF-8">
 	<meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"/>
-	<link rel="stylesheet" href="css/index.css">
-	<script src="js/zepto.min.js"></script>
-	<script src="js/TouchSlide.1.1.js"></script>
+	<link rel="stylesheet" href="css/guide.css">
 </head>
 <body>
-	<header class="header">
-		<nav class="nav">
-			<a href="/index.html">Home</a><a href="/contact.html">Contact</a>
-		</nav>
-		<div class="logo">
-			<img src="images/4.png" alt="">
-			<p>It's me!</p>
-		</div>
-	</header>
-	<article class="content">
-		<p class="title">介</p>
-		<section class="instro">
-			<p>Hi~我叫梁成妹，英文名Ellyliang</p>
-			<p>目前您是否在为公司物色人才而头疼呢？</p>
-			<p>哈，别沮丧，我是您的最佳人选！</p>
-		</section>
-		<hr>
-		<section class="tech">
-			<p class="tech-title">朋</p>
-			<ul>
-				<li><i>1.</i><span>熟悉html, css(less), Javascript(Jquery) </span></li>
-				<li><i>2.</i><span>熟悉html5, css3</span></li>
-				<li><i>3.</i><span>有响应式项目经验，ps：bootstrap做监控系统</span></li>
-				<li><i>4.</i><span>注重模块化开发。ps:之前使用的是淘宝的 seajs + arale + alice 开发项目,模 块化开发,能提高团队开发效率;</span></li>
-				<li><i>5.</i><span>自己额外了解的技术有: grunt , jquery mobile , handlebarjs, toosolo等;</span></li>
-			</ul>
-		</section>
-	</article>
-	<article>
-		<div id="picScroll" class="picScroll">
-			<div class="bd">
-				<ul>
-					<li><a href="#"><img _src="images/1.jpg" src="images/blank.png" /></a></li>
-					<li><a href="#"><img _src="images/2.jpg" src="images/blank.png" /></a></li>
-					<li><a href="#"><img _src="images/5.jpg" src="images/blank.png" /></a></li>
-				</ul>
-
-				<ul>
-					<li><a href="#"><img _src="images/1.jpg" src="images/blank.png" /></a></li>
-					<li><a href="#"><img _src="images/2.jpg" src="images/blank.png" /></a></li>
-					<li><a href="#"><img _src="images/5.jpg" src="images/blank.png" /></a></li>
-				</ul>
-
-				<ul>
-					<li><a href="#"><img _src="images/1.jpg" src="images/blank.png" /></a></li>
-					<li><a href="#"><img _src="images/2.jpg" src="images/blank.png" /></a></li>
-					<li><a href="#"><img _src="images/5.jpg" src="images/blank.png" /></a></li>
-				</ul>
-			</div>
-
-			<div class="hd">
-				<span class="next"></span>
-				<ul></ul>
-				<span class="prev"></span>
-				<!-- <h3>大学的二货萌</h3> -->
-			</div>
-		</div>
+	<article class="instroduce">
+		<a class="author-link" id="J-link" href="/JQM-me/guide.html">
+			<img src="images/snail.png" alt="">
+			<p>useLess</p>
+		</a>
 	</article>
 
-	<script type="text/javascript">
-		TouchSlide({ 
-			slideCell:"#picScroll",
-			titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-			autoPage:true, //自动分页
-			pnLoop:"false", // 前后按钮不循环
-			switchLoad:"_src" //切换加载，真实图片路径为"_src" 
-		});
+	<script>
+	var link = document.getElementById('J-link'),
+		tabp = document.getElementsByTagName('p')[0];
+
+	link.onmouseenter = function() {
+		tabp.innerHTML = "Click!^_^";
+	};
+	link.onmouseleave = function() {
+		tabp.innerHTML = "useLess";
+	};
 	</script>
 </body>
 </html>
