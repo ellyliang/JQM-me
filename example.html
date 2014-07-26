@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3-smile</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			background: rgb(228, 102, 124);
+		}
+		.main {
+			width: 100%;
+			margin-top: 6em;
+		}
+		.me {
+			display: block;
+			max-width: 442px;
+			height: 442px;
+			margin: 0 auto;
+			box-shadow: -5px -5px 0 #2A7BB8,5px 5px 0 #2A7BB8,5px 5px 0 #2A7BB8;
+			-webkit-animation: me 4s infinite linear;
+			-moz-animation: me 4s infinite linear;
+		}
+		.me img {
+			width: 100%;
+		}
+		.me-instro {
+			margin-top: .5em;
+			text-align: center;
+			font-size: 4em;
+			color: #7ADDFC;
+			text-shadow: -1px -1px #7ac4fc,-2px -2px #7ac4fc,-3px -3px #2A7BB8,-4px -4px #2A7BB8,-5px -5px #2A7BB8,-6px -6px #2A7BB8;
+		}
+		@-webkit-keyframes me {
+			0% {
+				-webkit-transform: rotateY(0deg);
+			}
+			100% {
+				-webkit-transform: rotateY(360deg);
+			}
+		}
+		@-moz-keyframes me {
+			0% {
+				-moz-transform: rotateY(0deg);
+			}
+			100% {
+				-moz-transfotm: rotateY(360deg);
+			}
+		}
+		@-webkit-keyframes me {
+			0% {
+				-webkit-transform: perspective(800px) rotateY(0deg);
+			}
+			100% {
+				-webkit-transform: perspective(800px) rotateY(360deg);
+			}
+		}
+		@-moz-keyframes me {
+			0% {
+				-moz-transform: perspective(800px) rotateY(0deg);
+			}
+			100% {
+				-moz-transform: perspective(800px) rotateY(360deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	<article class="main">
+		<setion class="me">
+			<img src="images/me.jpg" alt="">
+		</setion>
+		<p class="me-instro">Yeah~We must smile to life!</p>
+	</article>
+</body>
+</html>
