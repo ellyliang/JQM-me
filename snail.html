@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>css3-萌蜗牛</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<script src="js/jquery-1.7.2.min.js"></script>
 	<style>
 		body {
 			width: 100%;
@@ -10,46 +12,13 @@
 			background: #66cd99;
 			overflow: hidden;
 		}
-
-		@keyframes snailRun {
-			from {
-				right: 0;
-			}
-			to {
-				left: -100px;
-			}
+		.main {
+			width: 100%;
+			position: relative;
+			left: 1500px;
 		}
 
-		/*firefox*/
-		@-moz-keyframes snailRun {
-			from {
-				right: 0;
-			}
-			to {
-				left: 100px;
-			}
-		}
-
-		/*chrome*/
-		@-webkit-keyframes snailRun {
-			from {
-				right: 0;
-			}
-			to {
-				left: -100px;
-			}
-		}
-
-		/*opera*/
-		@-o-keyframes snailRun {
-			from {
-				right: 0;
-			}
-			to {
-				left: -100px;
-			}
-		}
-		.snail {
+		.snail-animate {
 			-webkit-animation: 25s linear infinite snailRun;
 			   -moz-animation: 25s linear infinite snailRun;
 			     -o-animation: 25s linear infinite snailRun;
@@ -57,10 +26,9 @@
 		}
 		.snail {
 			position: relative;
-			left: 1500px;
 			width: 100px;
 			height: 100px;
-			margin-top: 300px;
+			margin-top: 50px;
 			border-radius: 50%;
 			box-shadow: 0px 0px 0 2px #666;
 			background: #fe9b00;
@@ -108,6 +76,27 @@
 			border-radius: 50%;
 			background: #000;
 		}
+		.tip {
+			position: absolute;
+			left: -118px;
+			top: -92px;
+			max-width: 600px;
+			height: 80px;
+			/*line-height: 50px;*/
+			/*text-align: center;*/
+			background: #fff;
+			border-radius: 8px;
+		}
+		.tip p {
+			padding: 0 10px;
+			line-height: 1.5;
+			color: #66cd99;
+		}
+		.tip em {
+			padding: 0 5px;
+			font-size: 32px;
+			font-weight: bold;
+		}
 		.snail-tail {
 			position: absolute;
 			top: 102px;
@@ -135,12 +124,226 @@
 			-ms-transform: rotate(140deg);
 			transform: rotate(140deg);      
 		}
+		.tip-bottom {
+			position: absolute;
+			top: 80px;
+			left: 55px;
+			width: 0px;
+			height: 0px;
+			border: 18px solid;
+			border-color: #fff transparent transparent transparent;
+			border-style: dashed dashed solid dashed;
+		}
+
+		.cloud {
+			position: relative;
+			left: 30px;
+			top: 80px;
+			width: 352px;
+			height: 120px;
+			/*margin: 200px auto 0;*/
+			cursor: pointer;
+			border-radius: 74px;
+			border: 3px solid #fff;
+			background: #fff;
+			-moz-box-shadow: -9px -3px 5px #0099FF inset;
+			-webkit-box-shadow: -9px -3px 5px #0099FF inset;
+			box-shadow: -9px -3px 5px #0099FF inset;
+		}
+
+		.cloud:hover {
+			z-index: 99;
+			-webkit-animation:swing 1s .2s ease both;
+			-moz-animation:swing 1s .2s ease both;
+		}
+
+		.cloud:after {
+			position: absolute;
+			top: -75px;
+			left: 41px;
+			content: '';
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			border: 3px solid #fff;
+			background: #fff;
+		}
+		.cloud:before {
+			position: absolute;
+			top: -46px;
+			left: 184px;
+			content: '';
+			width: 120px;
+			height: 120px;
+			border-radius: 50%;
+			border: 3px solid #fff;
+			background: #fff;
+
+			-moz-box-shadow:-5px -5px 5px #0099FF inset;            
+			-webkit-box-shadow:-5px -5px 5px #0099FF inset;          
+			box-shadow:-5px -5px 5px #0099FF inset; 
+			z-index: -1;
+		}
+
+		.pos {
+			left: 602px;
+			top: -50px;
+			width: 244px;
+			height: 93px;
+		}
+		.pos:after {
+			top: -84px;
+			left: 41px;
+		}
+		.pos:before {
+			top: -67px;
+			left: 167px;
+		}
+
+		.pos1 {
+			left: 1137px;
+			top: -134px;
+			width: 213px;
+			height: 107px;
+		}
+		.pos1:after {
+			top: -63px;
+			left: 13px;
+		}
+		.pos1:before {
+			top: -67px;
+			left: 107px;
+			width: 150px;
+			height: 150px;
+		}
+		/*蜗牛动*/
+		@keyframes snailRun {
+			from {
+				right: 0;
+			}
+			to {
+				left: -200px;
+			}
+		}
+		@-moz-keyframes snailRun {
+			from {
+				right: 0;
+			}
+			to {
+				left: -200px;
+			}
+		}
+		@-webkit-keyframes snailRun {
+			from {
+				right: 0;
+			}
+			to {
+				left: -200px;
+			}
+		}
+		@-o-keyframes snailRun {
+			from {
+				right: 0;
+			}
+			to {
+				left: -200px;
+			}
+		}
+		
+		/*云摆动*/
+		@-webkit-keyframes swing{
+			20%,40%,60%,80%,100%{-webkit-transform-origin:top center}
+			20%{-webkit-transform:rotate(15deg)}
+			40%{-webkit-transform:rotate(-10deg)}
+			60%{-webkit-transform:rotate(5deg)}
+			80%{-webkit-transform:rotate(-5deg)}
+			100%{-webkit-transform:rotate(0deg)}
+		}
+		@-moz-keyframes swing{
+			20%,40%,60%,80%,100%{-moz-transform-origin:top center}
+			20%{-moz-transform:rotate(15deg)}
+			40%{-moz-transform:rotate(-10deg)}
+			60%{-moz-transform:rotate(5deg)}
+			80%{-moz-transform:rotate(-5deg)}
+			100%{-moz-transform:rotate(0deg)}
+		}
 	</style>
 </head>
 <body>
-	<div class="snail">
-		<div class="snail-body"></div>
-		<div class="snail-tail"></div>
+	<div class="cloud"></div>
+	<div class="cloud pos"></div>
+	<div class="cloud pos1"></div>
+
+	
+	<div class="main snail-animate">
+		<div class="tip">
+			<p id="J-cont">哞～点击云朵有惊喜哦！</p>
+			<span class="tip-bottom"></span>
+		</div>
+
+		<div class="snail">
+			<div class="snail-body"></div>
+			<div class="snail-tail"></div>
+		</div>
 	</div>
+
+	<script>
+	$(function() {
+		var Surprise = {
+			cloudId : '.cloud', 
+			createNew : function() {
+				var content = {};
+				var count = 10;
+				var jokeArr = [
+				'早上起来感觉肾很痛，钻心的疼！ 一侧转更疼了我看到我室友拿出一个新的iphone6,他的表情带有一丝感激。瞬间我明白了许多。感谢室友不杀之恩！！', 
+				'老师“小明，你来给大家解释一下什么叫骂人不带脏字” 小明“老师，您长得真像一只癞蛤蟆” 小明卒，享年10岁',
+				 '便秘有一种委婉的说法:“我有一种不翔的预感。”拉肚子也有一种委婉的说法：“我有一种滑翔的感觉”。。。',
+				  '跟对象吵架，嚷他，你吃屎去吧！结果他冲上来抱住我猛啃。我一下子娇羞了，一边假意挣扎一边说讨厌！你干嘛啦！然后他说，吃屎啊。我…',
+				   '我和室友约定，每晚去街上慢跑半个小时，我们坚持了一个月，效果真的很明显，沿街的烧烤摊都被我们吃遍了'
+				   ,
+				   '女儿放学回来把试卷让我签字，分数很低，把我气坏了：考这么低，笨死了，你知道猪是怎么死的？女儿低声说：气死的吧！我。。。',
+				   '学长：“学弟，这道题你会做么？我可以教你。”学弟：“啊...学长，我已经有男朋友了。”学长：“哦，那你知道别的学弟还有谁不会做这道题么？”',
+				   '听众：电台吗？我今天在超市门口捡了一个装有五千块钱的钱包！主持人：那我先替失主感谢你了！听众：你误会了，我只想点一首歌给自己祝贺一下！'];
+
+				content.arr = function() {
+					var min = 0;
+			        var max = jokeArr.length;
+			        var jokeNum = Math.floor(Math.random() * (max - min) + min);
+			            
+			        $('#J-cont').html(jokeArr[jokeNum]);
+				};
+
+				content.say = function(seltor) {
+
+					count --;
+
+					$(Surprise.cloudId).on('click.disabled', false);
+
+					if(count < 0) {
+						joke.arr();
+						count = 10;
+						$(Surprise.cloudId).off('click.disabled');
+						$('.main').removeClass('snail-animate').css({'left': '500px'});
+						return false;
+					} else {
+						$('.main').addClass('snail-animate')
+					}
+
+					setTimeout(joke.say, 1000);
+					
+					$('#J-cont').html('哞～惊喜快来了,倒数<em>'+ count +'</em>秒！');
+				};
+
+				return content;
+			}
+		};
+
+		var joke = Surprise.createNew();
+
+		$(document).on('click', '.cloud', function() {
+			joke.say();
+		});
+	})
+	</script>
 </body>
 </html>
