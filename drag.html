@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>drag</title>
+	<script src="js/jquery-1.7.2.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.8.17/jquery-ui.min.js"></script>
+	<script src="js/jquery.ui.touch-punch.js"></script>
+	<style>
+		body {
+			background: #eee;
+		}
+		.card {
+			position: relative;
+			width: 433px;
+			height: 555px;
+			margin: 0 auto;
+			margin-top: 15px;
+			padding-top: 34px;
+			background: #fafafa;
+			-webkit-box-shadow: 0 12px 45px 2px #371514;
+			-moz-box-shadow: 0 12px 45px 2px #371514;
+			box-shadow: 0 12px 45px 2px #371514;
+			z-index: 9;
+		}
+	</style>
+</head>
+<body>
+	<article class="card"></article>
+
+	<script>
+	$(function() {
+	var dragZoom = false;
+    var dropZoom = false;
+    var dropTop = true;
+    $('.card').draggable({
+        drag: function(event, ui) {
+        	dropZoom = false;
+        	dropTop = true;
+            ui.position.left = 0;
+            if (!dragZoom) {
+            	dragZoom = true;
+                // $('.card').stop().animate({'zoom': '0.8'});
+            }
+        },
+        stop: function(event, ui) {
+        	dragZoom = false;
+        	console.log(ui.offset.top);
+            if (ui.offset.top < 10) {
+                if (dropTop) {
+                	// photoCount += 1;
+                	// if(photoCount < 10) {
+                	// 	var countVal = '0' + photoCount;
+                	// } else {
+                	// 	var countVal = photoCount;
+
+                	// }
+
+                	// $span.numberAnimate('set', countVal);
+
+                	// photoPrice += 5;
+                	// $("#J-photoNum").text(photoCount);
+                	// $("#J-photoPrice").text(photoPrice);
+                	dropTop = false;
+                    $('.card').stop().animate({'top': "-800px"});
+                    // modal('您的lomo 卡已随风飞进印美图机器，即将开始打印~~');
+                    // print();
+                }
+            } else {
+                if (!dropZoom) {
+                    dropZoom = true;
+                    $('.card').stop().animate({'top':0});
+                }
+            }
+        }
+    });
+	});
+	</script>
+</body>
+</html>

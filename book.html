@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			background: #eee;
+		}
+
+		.contain {
+			position: relative;
+			top: 200px;
+			left: 50%;
+			width: 350px;
+			height: 220px;
+			margin-left: -175px;
+		}
+
+		.book {
+			position: absolute;
+			width: 129px;
+			height: 169px;
+			border-radius: 5px;
+			box-shadow: 3px 4px 17px #555;
+			transition: all 1s;
+			-webkit-transition: all 1s;
+		}
+		
+		.contain:hover .book{
+			left: 0;
+			top: 0;
+			transform: rotate(0deg);
+			-webkit-transition: rotate(0deg);
+		}
+
+		.book0 {
+			left: 0;
+			top: 0;
+			transform: rotate(-21deg);
+			-webkit-transform: rotate(-21deg);
+			background: #ff4c8e;
+		}
+
+		.book1 {
+			left: 40px;
+			top: -10px;
+			transform: rotate(-9deg);
+			-webkit-transform: rotate(-9deg);
+			background: #f4a60e;
+		}
+
+		.book2 {
+			left: 80px;
+			top: -10px;
+			background: #99bc2c;
+		}
+
+		.book3 {
+			left: 120px;
+			top: 0px;
+			transform: rotate(11deg);
+			-webkit-transform: rotate(11deg);
+			background: #44c1f1;
+		}
+
+		.book4 {
+			left: 160px;
+			top: 15px;
+			transform: rotate(19deg);
+			-webkit-transform: rotate(19deg);
+			background: #8f71ad;
+		}
+
+		.book5 {
+			left: 186px;
+			top: 27px;
+			transform: rotate(35deg);
+			-webkit-transform: rotate(35deg);
+			background: #fefefe;
+		}
+	</style>
+</head>
+<body>
+	<div class="contain">
+		<div class="book book0"></div>
+		<div class="book book1"></div>
+		<div class="book book2"></div>
+		<div class="book book3"></div>
+		<div class="book book4"></div>
+		<div class="book book5"></div>
+	</div>
+</body>
+</html>
