@@ -1,0 +1,15 @@
+<ul class="musicMode play-style">
+	<li><a href="#" title="列表循环" ng-click="listPlay()" class="icon-loop"></a></li>
+	<li><a href="#" title="随机播放" ng-click="randomPlay()" class="icon-shuffle"></a></li>
+	<li><a href="#" title="单曲循环" ng-click="repeatPlay()" class="icon-loop2"></a></li>
+	<li class="play-voice" ng-mouseover="showVol()" ng-mouseleave="hideVol()">
+		<a href="#" class="icon-volume-medium" ng-click="audioMuted()" ng-show="muted"></a>
+		<a href="#" class="icon-volume-mute" ng-click="audioMuted()" ng-show="!muted"></a>
+		
+		<div class="vol" ng-show="volShow" ng-mouseleave="hideVol()" ng-hide="!volShow">
+			<a href="#" class="play-vol" ng-click="adjustVolume($event)">
+				<span class="play-voling" style="{{volStyle}}"></span>
+			</a>
+		</div>
+	</li>
+</ul>

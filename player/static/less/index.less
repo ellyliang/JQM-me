@@ -1,0 +1,377 @@
+@charset "utf-8";
+
+//Mixins&Variables
+@import "mixins.less";
+@import "variables.less";
+
+//icon
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?-32qlpk');
+	src:url('../fonts/icomoon.eot?#iefix-32qlpk') format('embedded-opentype'),
+		url('../fonts/icomoon.woff?-32qlpk') format('woff'),
+		url('../fonts/icomoon.ttf?-32qlpk') format('truetype'),
+		url('../fonts/icomoon.svg?-32qlpk#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-music:before {
+	content: "\e600";
+}
+.icon-play:before {
+	content: "\e601";
+}
+.icon-pause:before {
+	content: "\e602";
+}
+.icon-backward:before {
+	content: "\e603";
+}
+.icon-forward:before {
+	content: "\e604";
+}
+.icon-volume-medium:before {
+	content: "\e605";
+}
+.icon-volume-mute:before {
+	content: "\e606";
+}
+.icon-loop:before {
+	content: "\e607";
+}
+.icon-loop2:before {
+	content: "\e608";
+}
+.icon-shuffle:before {
+	content: "\e609";
+}
+.icon-vynil:before {
+	content: "\e60a";
+}
+
+
+//Index Style
+html {
+	.size(100%, 100%);
+}
+
+body {
+	height: 100%;
+	color: #29295f;
+	#gradient .vertical(#ec9cb5, #75839d);
+}
+
+li {
+	list-style: none;
+}
+
+a,
+b {
+	color: #29295f;
+}
+
+.container {
+	position: relative;
+	top: 80px;
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.main {
+	.clearfix;
+}
+
+.player {
+	float: left;
+	width: 500px;
+}
+
+.player-list {
+	position: relative;
+	top: 34px;
+	float: right;
+	width: 500px;
+	border-radius: 15px;
+	background: rgba(255, 255, 255, .2);
+
+	.list-title {
+		width: 182px;
+		float: right;
+		margin-right: -10px;
+		padding: 5px 2px;
+		color: @white;
+		border-radius: 15px;
+		#gradient .vertical(#6cd3d0, #4cb7af);
+		text-align: center;
+	}
+	
+	.icon-vynil {
+		margin-right: 5px;
+	}
+}
+
+.list-music {
+	padding: 15px 15px;
+	border-radius: 37px;
+	text-align: center;
+
+	li {
+		margin:12px 0;
+		padding: 7px 0;
+		cursor: pointer;
+	}
+
+	span {
+		display: inline-block;
+		width: 394px;
+		text-align: left;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		vertical-align: middle;
+	}
+
+	i {
+		margin-left: 5px;
+		color: #5fc8c3;
+	}
+}
+
+.artist {
+	display: -webkit-flex;
+  	display: flex;
+
+  	.artist-rotate {
+		-moz-animation: spin 8s infinite linear;
+		-o-animation: spin 8s infinite linear;
+		-webkit-animation: spin 8s infinite linear;
+		animation: spin 8s infinite linear;
+  	}
+
+	.artist-img {
+		.size(100px, 100px);
+		border-radius: 50%;
+		z-index: 9;
+
+		img {
+			display: block;
+			.size(100px, 100px);
+			border-radius: 50%;
+			border: 3px solid #5fc8c3;
+			.box-shadow(0 0 17px #333);
+		}
+	}
+
+	.artist-name {
+		display: inline-block;
+        .size(184px, 50px);
+        margin: 45px 0 0 -10px;
+        text-align: center;
+        line-height: 50px;
+       	border-top-right-radius: 25px;
+       	border-bottom-right-radius: 25px;
+        #gradient .vertical(#6cd3d0, #4cb7af);
+        .box-shadow(0 0 17px #333);
+
+        b {
+        	margin-right: 10px;
+        	vertical-align: middle;
+        }
+	}
+}
+
+.music {
+	width: 100%;
+	margin-top: 81px;
+	text-align: center;
+
+	.music-record {
+		padding: 0;
+		margin: -10px 0 0 0;
+	}
+}
+
+.player-btn {
+	width: 100%;
+	margin-top: 81px;
+	text-align: center;
+
+	a {
+		display: inline-block;
+		margin: 0 15px;
+		text-align: center;
+		border-radius: 50%;
+		// border: 1px solid #f4f2f5;
+		text-decoration: none;
+		color: #f4f2f5;
+		#gradient .vertical(#6cd3d0, #4cb7af);
+		transition: all 2s;
+		-webkit-transition: all .5s;
+
+		&:hover {
+			color: #5db7b5;
+			#gradient .vertical(#f4f2f5, #e3dde1);
+		}
+	}
+
+	a.prev,
+	a.next {
+		.size(80px, 80px);
+
+		span {
+			line-height: 80px;
+			font-size: @baseFontSize + 25;
+		}
+	}
+
+	.icon-backward {
+		padding-right: 5px;
+	}
+
+	.icon-forward {
+		padding-left: 5px;
+	}
+
+	.icon-play,
+	.icon-pause {
+		padding-left: 12px;
+		line-height: 100px;
+		font-size: @baseFontSize + 35;
+	}
+
+	.icon-pause {
+		padding-left: 0;
+	}
+
+	a.play,
+	a.stop {
+		.size(100px, 100px);
+	}
+}
+
+.play-sel {
+	width: 100%;
+
+	.play-time {
+		display: inline-block;
+		text-align: left;
+	}
+
+	.play-style {
+		display: inline-block;
+		width: 916px;
+		text-align: right;
+
+		li {
+			display: inline-block;
+			margin: 0 6px;
+		}
+
+		a {
+			font-size: @baseFontSize + 7;
+			text-decoration: none;
+		}
+
+		li.active {
+			a {
+				color: #5db7b5;
+			}
+		}
+	}
+}
+
+.progress-play {
+	margin-top: 71px;
+}
+
+.progress-bar {
+	position: relative;
+	width: 100%;
+	height: 10px;
+	#gradient .vertical(#f4f2f5, #e3dde1);
+	border-radius: 15px;
+	border: 2px solid #4cb7af;
+
+	.progress-loading {
+		position: absolute;
+		height: 10px;
+		background: #ccc;
+		border-radius: 15px;
+		z-index: 9;
+	}
+
+	.progress-playing {
+		position: absolute;
+		height: 10px;
+		#gradient .vertical(#6cd3d0, #4cb7af);
+		border-radius: 15px;
+		z-index: 99;
+	}
+}
+
+.play-voice {
+	position: relative;
+
+	.play-vol,
+	.play-voling {
+		display: block;
+		position: absolute;
+		width: 8px;
+		border-radius: 15px;
+	}
+
+	.play-vol {
+		left: 0;
+		top: -81px;
+		height: 74px;
+		border: 2px solid #fff;
+		background: #ccc;
+	}
+
+	.play-voling {
+		left: 0;
+		bottom: 0;
+		width: 8px;
+		background: #5db7b5;
+	}
+}
+
+@-moz-keyframes spin {
+	0% { -moz-transform: rotate(0deg); }
+	100% { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+@-o-keyframes spin {
+	0% { -o-transform: rotate(0deg); }
+	100% { -o-transform: rotate(360deg); }
+}
+@-ms-keyframes spin {
+	0% { -ms-transform: rotate(0deg); }
+	100% { -ms-transform: rotate(360deg); }
+}
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+
+
+
