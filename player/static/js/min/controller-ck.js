@@ -1,1 +1,0 @@
-playerApp.controller("playerCtrls",["$scope","DataList","DataBinding","Audio","Player","$timeout",function(a,e,i,t,l,n){i.dataBindFunc(0),a.player=l,a.audio=t,a.player.active=0,a.isSelected=function(){a.player.active=this.$index,i.dataBindFunc(a.player.active),l.play(a.player.active)}}]);
