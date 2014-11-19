@@ -7,7 +7,7 @@ playerApp.directive('musicMode', ['$timeout', '$document', function($timeout, $d
 			player : '=',
 			audio: '='
 		},
-		templateUrl: '/tpls/mode.html',
+		templateUrl: 'tpls/mode.html',
 		link: function(scope, ele, attr) {
 
 			var status = 'list'; //标识播放模式，默认为list
