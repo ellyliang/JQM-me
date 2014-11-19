@@ -1,0 +1,487 @@
+@charset "utf-8";
+/*
+ *@名称: mixins
+ *@功能: 实用混入
+ */
+/* 清除浮动 */
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+/* Webkit-style focus */
+/* IE7 内联块 */
+/* 调整大小快捷方式 */
+/* 占位符文本颜色 */
+/*
+ *文本溢出 
+ *@Requires inline-block or block for proper styling
+ */
+/* CSS图片替换 */
+.hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+/* 字体 */
+/* 表单 */
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* CSS3 属性 */
+/*
+ *隐藏内容背面 
+ *@Prevent browsers from flickering when using CSS 3D transforms
+ *@Default value is `visible`, but can be changed to `hidden
+ */
+/*
+ *背景裁剪 
+ *@Heads up: FF 3.6 and under need "padding" instead of "padding-box"
+ */
+/*
+ *控制可选择
+ *@For selecting text on the page
+ */
+/* 背景 */
+/* 组件混入 */
+/*
+ *水平分隔栏
+ *@基于一条水平线分割下拉菜单和导航列表
+ */
+/* 栅格系统 */
+/*
+ *@名称: variables
+ *@功能: 全局变量
+ */
+/* 浅色 */
+/* 深色 */
+/* 背景和文字颜色 */
+/* 链接 */
+/* 排版 */
+/*
+ *字体大小 
+ *@Based on 14px font-size and 20px line-height
+ */
+/* 表格 */
+/* 按钮 */
+/* 表单 */
+/* 下拉菜单 */
+/* 层级 */
+/* Sprite图标路径 */
+/* 导航栏 */
+/* 分页 */
+/* 表单状态和提示 */
+/* Tooltips and popovers */
+/* 栅格 */
+@font-face {
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon.eot?-32qlpk');
+  src: url('../fonts/icomoon.eot?#iefix-32qlpk') format('embedded-opentype'), url('../fonts/icomoon.woff?-32qlpk') format('woff'), url('../fonts/icomoon.ttf?-32qlpk') format('truetype'), url('../fonts/icomoon.svg?-32qlpk#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-music:before {
+  content: "\e600";
+}
+.icon-play:before {
+  content: "\e601";
+}
+.icon-pause:before {
+  content: "\e602";
+}
+.icon-backward:before {
+  content: "\e603";
+}
+.icon-forward:before {
+  content: "\e604";
+}
+.icon-volume-medium:before {
+  content: "\e605";
+}
+.icon-volume-mute:before {
+  content: "\e606";
+}
+.icon-loop:before {
+  content: "\e607";
+}
+.icon-loop2:before {
+  content: "\e608";
+}
+.icon-shuffle:before {
+  content: "\e609";
+}
+.icon-vynil:before {
+  content: "\e60a";
+}
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  height: 100%;
+  color: #29295f;
+  background-color: #bc92ab;
+  background-image: -moz-linear-gradient(top, #ec9cb5, #75839d);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ec9cb5), to(#75839d));
+  background-image: -webkit-linear-gradient(top, #ec9cb5, #75839d);
+  background-image: -o-linear-gradient(top, #ec9cb5, #75839d);
+  background-image: linear-gradient(to bottom, #ec9cb5, #75839d);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec9cb5', endColorstr='#ff75839d', GradientType=0);
+}
+li {
+  list-style: none;
+}
+a,
+b {
+  color: #29295f;
+}
+.container {
+  position: relative;
+  top: 80px;
+  width: 1000px;
+  margin: 0 auto;
+}
+.main {
+  *zoom: 1;
+}
+.main:before,
+.main:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.main:after {
+  clear: both;
+}
+.player {
+  float: left;
+  width: 500px;
+}
+.player-list {
+  position: relative;
+  top: 34px;
+  float: right;
+  width: 500px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.player-list .list-title {
+  width: 182px;
+  float: right;
+  margin-right: -10px;
+  padding: 5px 2px;
+  color: #ffffff;
+  border-radius: 15px;
+  background-color: #5fc8c3;
+  background-image: -moz-linear-gradient(top, #6cd3d0, #4cb7af);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6cd3d0), to(#4cb7af));
+  background-image: -webkit-linear-gradient(top, #6cd3d0, #4cb7af);
+  background-image: -o-linear-gradient(top, #6cd3d0, #4cb7af);
+  background-image: linear-gradient(to bottom, #6cd3d0, #4cb7af);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6cd3d0', endColorstr='#ff4cb7af', GradientType=0);
+  text-align: center;
+}
+.player-list .icon-vynil {
+  margin-right: 5px;
+}
+.list-music {
+  padding: 15px 15px;
+  border-radius: 37px;
+  text-align: center;
+}
+.list-music li {
+  margin: 12px 0;
+  padding: 7px 0;
+  cursor: pointer;
+}
+.list-music span {
+  display: inline-block;
+  width: 394px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+.list-music i {
+  margin-left: 5px;
+  color: #5fc8c3;
+}
+.artist {
+  display: -webkit-flex;
+  display: flex;
+}
+.artist .artist-rotate {
+  -moz-animation: spin 8s infinite linear;
+  -o-animation: spin 8s infinite linear;
+  -webkit-animation: spin 8s infinite linear;
+  animation: spin 8s infinite linear;
+}
+.artist .artist-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  z-index: 9;
+}
+.artist .artist-img img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #5fc8c3;
+  -webkit-box-shadow: 0 0 17px #333333;
+  -moz-box-shadow: 0 0 17px #333333;
+  box-shadow: 0 0 17px #333333;
+}
+.artist .artist-name {
+  display: inline-block;
+  width: 184px;
+  height: 50px;
+  margin: 45px 0 0 -10px;
+  text-align: center;
+  line-height: 50px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color: #5fc8c3;
+  background-image: -moz-linear-gradient(top, #6cd3d0, #4cb7af);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6cd3d0), to(#4cb7af));
+  background-image: -webkit-linear-gradient(top, #6cd3d0, #4cb7af);
+  background-image: -o-linear-gradient(top, #6cd3d0, #4cb7af);
+  background-image: linear-gradient(to bottom, #6cd3d0, #4cb7af);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6cd3d0', endColorstr='#ff4cb7af', GradientType=0);
+  -webkit-box-shadow: 0 0 17px #333333;
+  -moz-box-shadow: 0 0 17px #333333;
+  box-shadow: 0 0 17px #333333;
+}
+.artist .artist-name b {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.music {
+  width: 100%;
+  margin-top: 81px;
+  text-align: center;
+}
+.music .music-record {
+  padding: 0;
+  margin: -10px 0 0 0;
+}
+.player-btn {
+  width: 100%;
+  margin-top: 81px;
+  text-align: center;
+}
+.player-btn a {
+  display: inline-block;
+  margin: 0 15px;
+  text-align: center;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #f4f2f5;
+  background-color: #5fc8c3;
+  background-image: -moz-linear-gradient(top, #6cd3d0, #4cb7af);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6cd3d0), to(#4cb7af));
+  background-image: -webkit-linear-gradient(top, #6cd3d0, #4cb7af);
+  background-image: -o-linear-gradient(top, #6cd3d0, #4cb7af);
+  background-image: linear-gradient(to bottom, #6cd3d0, #4cb7af);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6cd3d0', endColorstr='#ff4cb7af', GradientType=0);
+  transition: all 2s;
+  -webkit-transition: all .5s;
+}
+.player-btn a:hover {
+  color: #5db7b5;
+  background-color: #edeaed;
+  background-image: -moz-linear-gradient(top, #f4f2f5, #e3dde1);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f2f5), to(#e3dde1));
+  background-image: -webkit-linear-gradient(top, #f4f2f5, #e3dde1);
+  background-image: -o-linear-gradient(top, #f4f2f5, #e3dde1);
+  background-image: linear-gradient(to bottom, #f4f2f5, #e3dde1);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4f2f5', endColorstr='#ffe3dde1', GradientType=0);
+}
+.player-btn a.prev,
+.player-btn a.next {
+  width: 80px;
+  height: 80px;
+}
+.player-btn a.prev span,
+.player-btn a.next span {
+  line-height: 80px;
+  font-size: 39px;
+}
+.player-btn .icon-backward {
+  padding-right: 5px;
+}
+.player-btn .icon-forward {
+  padding-left: 5px;
+}
+.player-btn .icon-play,
+.player-btn .icon-pause {
+  padding-left: 12px;
+  line-height: 100px;
+  font-size: 49px;
+}
+.player-btn .icon-pause {
+  padding-left: 0;
+}
+.player-btn a.play,
+.player-btn a.stop {
+  width: 100px;
+  height: 100px;
+}
+.play-sel {
+  width: 100%;
+}
+.play-sel .play-time {
+  display: inline-block;
+  text-align: left;
+}
+.play-sel .play-style {
+  display: inline-block;
+  width: 916px;
+  text-align: right;
+}
+.play-sel .play-style li {
+  display: inline-block;
+  margin: 0 6px;
+}
+.play-sel .play-style a {
+  font-size: 21px;
+  text-decoration: none;
+}
+.play-sel .play-style li.active a {
+  color: #5db7b5;
+}
+.progress-play {
+  margin-top: 71px;
+}
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  background-color: #edeaed;
+  background-image: -moz-linear-gradient(top, #f4f2f5, #e3dde1);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f4f2f5), to(#e3dde1));
+  background-image: -webkit-linear-gradient(top, #f4f2f5, #e3dde1);
+  background-image: -o-linear-gradient(top, #f4f2f5, #e3dde1);
+  background-image: linear-gradient(to bottom, #f4f2f5, #e3dde1);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4f2f5', endColorstr='#ffe3dde1', GradientType=0);
+  border-radius: 15px;
+  border: 2px solid #4cb7af;
+}
+.progress-bar .progress-loading {
+  position: absolute;
+  height: 10px;
+  background: #ccc;
+  border-radius: 15px;
+  z-index: 9;
+}
+.progress-bar .progress-playing {
+  position: absolute;
+  height: 10px;
+  background-color: #5fc8c3;
+  background-image: -moz-linear-gradient(top, #6cd3d0, #4cb7af);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6cd3d0), to(#4cb7af));
+  background-image: -webkit-linear-gradient(top, #6cd3d0, #4cb7af);
+  background-image: -o-linear-gradient(top, #6cd3d0, #4cb7af);
+  background-image: linear-gradient(to bottom, #6cd3d0, #4cb7af);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6cd3d0', endColorstr='#ff4cb7af', GradientType=0);
+  border-radius: 15px;
+  z-index: 99;
+}
+.play-voice {
+  position: relative;
+}
+.play-voice .play-vol,
+.play-voice .play-voling {
+  display: block;
+  position: absolute;
+  width: 8px;
+  border-radius: 15px;
+}
+.play-voice .play-vol {
+  left: 0;
+  top: -81px;
+  height: 74px;
+  border: 2px solid #fff;
+  background: #ccc;
+}
+.play-voice .play-voling {
+  left: 0;
+  bottom: 0;
+  width: 8px;
+  background: #5db7b5;
+}
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-o-keyframes spin {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -o-transform: rotate(360deg);
+  }
+}
+@-ms-keyframes spin {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

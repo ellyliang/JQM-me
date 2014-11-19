@@ -1,0 +1,1 @@
+playerApp.config(function(e){e.when("/player",{templateUrl:"index.html",controller:"playerCtrls"}).otherwise({redirectTo:"/player"})});
