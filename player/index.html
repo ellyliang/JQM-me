@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>柚子播放器～哈哈哈哈</title>
-	<link rel="stylesheet" href="static/css/normalize.css">
-	<link rel="stylesheet" href="static/css/index.css">
-	<script src="static/js/angular.js"></script>
+	<link rel="stylesheet" href="/static/css/normalize.css">
+	<link rel="stylesheet" href="/static/css/index.css">
+	<script src="/static/js/angular.min.js"></script>
 </head>
 <body>
 	<article class="container" ng-controller="playerCtrls">
@@ -23,14 +23,14 @@
 
 				<div class="player-btn" ng-init="player.playing=false">
 					<a href="#" class="prev icon" ng-click="player.prev()"><span class="icon-backward"></span></a>
-					<a href="#" class="play" ng-show="!player.playing" ng-click="player.play(player.active)"><span class="icon-play"></span></a>
+					<a href="#" class="play" ng-show="!player.playing" ng-click="player.play()"><span class="icon-play"></span></a>
 					<a href="#" class="stop" ng-show="player.playing" ng-click="player.stop()"><span class="icon-pause"></span></a>
 					<a href="#" class="next" ng-click="player.next()"><span class="icon-forward"></span></a>
 				</div>
 			</div>
 
 			<div class="player-list">
-				<h3 class="list-title"><i class="icon-vynil"></i>歌曲列表</h3>
+				<h3 class="list-title"><i class="icon-vynil"></i>Music List</h3>
 
 				<ul class="list-music" ng-init="player.active=0">
 					<li ng-repeat="data in datas" ng-click="isSelected(data)" title="{{data.artist}}－{{data.song}}－{{data.album}}">
@@ -43,22 +43,19 @@
 
 		<div class="progress-play">
 			<div class="play-sel">
-				<p class="play-time" ng-init="player.playTime='-0.00'">{{player.playTime}}</p>
 				<music-mode player="player" audio="audio"></music-mode>
 			</div>
 
-			<div class="progress-bar">
-				<div class="progress-loading" style="{{player.bufferWidth}}"></div>
-				<div class="progress-playing" style="{{player.surplusWidth}}"></div>
-			</div>
+			<progress-bar player="player" audio="audio"></progress-bar>
 		</div>
 	</article>
 
-	<script src="static/js/app.js"></script>
-	<script src="static/js/controller.js"></script>
-	<script src="static/js/service.js"></script>
-	<script src="static/js/directive.js"></script>
-	<script src="static/js/angular-route.js"></script>
-	<script src="static/js/router.js"></script>
+	<script src="/static/js/angular-route.min.js"></script>
+	<script src="/static/js/index.min.js"></script>
+	<!--<script src="/static/js/app.js"></script>
+	<script src="/static/js/controller.js"></script>
+	<script src="/static/js/service.js"></script>
+	<script src="/static/js/directive.js"></script>
+	<script src="/static/js/router.js"></script>-->
 </body>
 </html>

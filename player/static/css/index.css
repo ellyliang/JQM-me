@@ -164,10 +164,11 @@ b {
   color: #29295f;
 }
 .container {
-  position: relative;
-  top: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 1000px;
-  margin: 0 auto;
 }
 .main {
   *zoom: 1;
@@ -363,10 +364,6 @@ b {
 .play-sel {
   width: 100%;
 }
-.play-sel .play-time {
-  display: inline-block;
-  text-align: left;
-}
 .play-sel .play-style {
   display: inline-block;
   width: 916px;
@@ -400,6 +397,7 @@ b {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff4f2f5', endColorstr='#ffe3dde1', GradientType=0);
   border-radius: 15px;
   border: 2px solid #4cb7af;
+  cursor: pointer;
 }
 .progress-bar .progress-loading {
   position: absolute;
@@ -421,6 +419,11 @@ b {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff6cd3d0', endColorstr='#ff4cb7af', GradientType=0);
   border-radius: 15px;
   z-index: 99;
+}
+.progress-bar .play-time {
+  position: absolute;
+  top: -50px;
+  left: 0;
 }
 .play-voice {
   position: relative;

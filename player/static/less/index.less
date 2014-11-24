@@ -86,10 +86,11 @@ b {
 }
 
 .container {
-	position: relative;
-	top: 80px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	width: 1000px;
-	margin: 0 auto;
 }
 
 .main {
@@ -216,7 +217,6 @@ b {
 		margin: 0 15px;
 		text-align: center;
 		border-radius: 50%;
-		// border: 1px solid #f4f2f5;
 		text-decoration: none;
 		color: #f4f2f5;
 		#gradient .vertical(#6cd3d0, #4cb7af);
@@ -267,10 +267,10 @@ b {
 .play-sel {
 	width: 100%;
 
-	.play-time {
-		display: inline-block;
-		text-align: left;
-	}
+	// .play-time {
+	// 	display: inline-block;
+	// 	text-align: left;
+	// }
 
 	.play-style {
 		display: inline-block;
@@ -306,6 +306,7 @@ b {
 	#gradient .vertical(#f4f2f5, #e3dde1);
 	border-radius: 15px;
 	border: 2px solid #4cb7af;
+	cursor: pointer;
 
 	.progress-loading {
 		position: absolute;
@@ -321,6 +322,12 @@ b {
 		#gradient .vertical(#6cd3d0, #4cb7af);
 		border-radius: 15px;
 		z-index: 99;
+	}
+
+	.play-time {
+		position: absolute;
+		top: -50px;
+		left: 0;
 	}
 }
 
