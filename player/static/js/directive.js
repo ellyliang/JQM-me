@@ -7,7 +7,7 @@ playerApp.directive('musicMode', ['$timeout', '$document', function($timeout, $d
 			player : '=',
 			audio: '='
 		},
-		templateUrl: '/tpls/mode.html',
+		templateUrl: 'tpls/mode.html',
 		link: function(scope, ele, attr) {
 
 			var status = 'list'; //标识播放模式，默认为list
@@ -113,7 +113,7 @@ playerApp.directive('progressBar', ['$document', '$interval', '$rootScope', func
 			player: '=',
 			audio: '='
 		},
-		templateUrl: '/tpls/progress.html',
+		templateUrl: 'tpls/progress.html',
 		link: function(scope, rootScope, ele, attr) {
 			console.log($rootScope);
 			scope.surplusBar = function() { //音乐剩余时间
