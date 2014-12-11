@@ -26,56 +26,56 @@ playerApp.factory('DataList', function() {
 			"artist": "Lene Marlin",
 			"song" : "A Place Nearby",
 			"album" : "《Playing My Game》",
-			"songUrl" : "static/music/A Place Nearby.mp3",
-			"avatar" : "static/img/lm.jpg"
+			"songUrl" : "/static/music/A Place Nearby.mp3",
+			"avatar" : "/static/img/lm.jpg"
 		},
 		{
 			"id": 1,
 			"artist": "David Archuleta",
 			"song" : "Crush",
 			"album" : "《David Archuleta》",
-			"songUrl" : "static/music/Crush.mp3",
-			"avatar" : "static/img/da.jpg"
+			"songUrl" : "/static/music/Crush.mp3",
+			"avatar" : "/static/img/da.jpg"
 		},
 		{
 			"id": 2,
 			"artist": "Lucie Arnaz",
 			"song" : "I still Believe In Love",
 			"album" : "《They'Re Playing Our Song》",
-			"songUrl" : "static/music/I Still Believe In Love.mp3",
-			"avatar" : "static/img/la.jpg"
+			"songUrl" : "/static/music/I Still Believe In Love.mp3",
+			"avatar" : "/static/img/la.jpg"
 		},
 		{
 			"id": 3,
 			"artist": "Jem",
 			"song" : "It's Amazing",
 			"album" : "《Sex And The City - Original Motion Picture Soundtrack》",
-			"songUrl" : "static/music/It'S Amazing.mp3",
-			"avatar" : "static/img/jem.jpg"
+			"songUrl" : "/static/music/It'S Amazing.mp3",
+			"avatar" : "/static/img/jem.jpg"
 		},
 		{
 			"id": 4,
 			"artist": "Jewel",
 			"song" : "Stay Here Forever",
 			"album" : "《Sweet And Wild》",
-			"songUrl" : "static/music/Stay Here Forever.mp3",
-			"avatar" : "static/img/jew.jpg"
+			"songUrl" : "/static/music/Stay Here Forever.mp3",
+			"avatar" : "/static/img/jew.jpg"
 		},
 		{
 			"id": 5,
 			"artist": "Lenka",
 			"song" : "The Show",
 			"album" : "《#LOVE acoustic》",
-			"songUrl" : "static/music/The Show.mp3",
-			"avatar" : "static/img/lenka.jpg"
+			"songUrl" : "/static/music/The Show.mp3",
+			"avatar" : "/static/img/lenka.jpg"
 		},
 		{
 			"id": 6,
 			"artist": "Tamas Wells",
 			"song" : "Valder Fields",
 			"album" : "《A Plea En Vendredi》",
-			"songUrl" : "static/music/Valder Fields.mp3",
-			"avatar" : "static/img/tw.jpg"
+			"songUrl" : "/static/music/Valder Fields.mp3",
+			"avatar" : "/static/img/tw.jpg"
 		}
 	]; 
 
@@ -175,7 +175,7 @@ playerApp.directive('musicMode', ['$timeout', '$document', function($timeout, $d
 			player : '=',
 			audio: '='
 		},
-		templateUrl: 'tpls/mode.html',
+		templateUrl: '/tpls/mode.html',
 		link: function(scope, ele, attr) {
 
 			var status = 'list'; //标识播放模式，默认为list
@@ -281,7 +281,7 @@ playerApp.directive('progressBar', ['$document', '$interval', '$rootScope', func
 			player: '=',
 			audio: '='
 		},
-		templateUrl: 'tpls/progress.html',
+		templateUrl: '/tpls/progress.html',
 		link: function(scope, rootScope, ele, attr) {
 			console.log($rootScope);
 			scope.surplusBar = function() { //音乐剩余时间

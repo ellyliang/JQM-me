@@ -7,7 +7,8 @@
  */
 
 html {
-  font-family: sans-serif; /* 1 */
+  font-family: '微软雅黑','Helvetica Neue',sans-serif,SimHei;
+  -webkit-font-smoothing: antialiased; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
