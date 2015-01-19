@@ -1,0 +1,81 @@
+--2015-01-14 22:34:34--  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Resolving ajax.googleapis.com... 64.233.187.95
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-14 22:36:05--  (try: 2)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-14 22:37:22--  (try: 3)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 16:57:54--  (try: 4)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 16:59:13--  (try: 5)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 17:00:34--  (try: 6)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 17:01:55--  (try: 7)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 17:03:19--  (try: 8)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 17:04:43--  (try: 9)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 17:06:08--  (try:10)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 17:07:34--  (try:11)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 17:09:00--  (try:12)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 17:10:26--  (try:13)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 17:11:52--  (try:14)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 17:13:18--  (try:15)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 17:14:45--  (try:16)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 17:16:10--  (try:17)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 17:17:36--  (try:18)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 17:19:02--  (try:19)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Retrying.
+
+--2015-01-16 17:20:28--  (try:20)  http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+Connecting to ajax.googleapis.com|64.233.187.95|:80... failed: Operation timed out.
+Giving up.
+
