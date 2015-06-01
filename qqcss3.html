@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>qq</title>
+	<style>
+		.smile {
+			position: relative;
+			width: 100px;
+			height: 100px;
+			margin: 0 auto;
+			background-color: #f8c533;
+			border-radius: 50%;
+			border: 1px solid #e2a02e;
+		}
+		.smile:before,
+		.smile:after {
+			position: absolute;
+			top: 30px;
+			content: '';
+			width: 15px;
+			height: 17px;
+			border-top: 2px solid #5d230e;
+			border-radius: 50%;
+		}
+		.smile:before {
+			left: 15px;
+		}
+		.smile:after {
+			right: 15px;
+		}
+
+		.eyes:before,
+		.eyes:after {
+			position: absolute;
+			top: 10px;
+			content: '';
+			width: 10px;
+			height: 15px;
+			border-top: 2px solid #5d230e;
+			border-radius: 50%;
+		}
+		.eyes:before {
+			left: 10px;
+			-webkit-transform: skew(15deg);
+		}
+		.eyes:after {
+			right: 10px;
+			-webkit-transform: skew(-15deg);
+		}
+		.mouth {
+			position: absolute;
+		    top: 47px;
+		    left: 19px;
+		    width: 60px;
+		    height: 26px;
+		    border-bottom: 2px solid #ac5922;
+		    border-bottom-left-radius: 50%;
+		    border-bottom-right-radius: 50%;
+		    transition: .5s border-bottom;
+		}
+		.smile:hover .mouth {
+			border-bottom: 20px solid #ac5922;
+		}
+	</style>
+</head>
+<body>
+	<article class="smile">
+		<div class="eyes"></div>
+		<div class="mouth"></div>
+	</article>
+</body>
+</html>
