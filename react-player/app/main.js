@@ -13,10 +13,10 @@ var Index = React.createClass({
 				<ImgBg />
 				<article className="indexBg">
 					<p className="indexMe">
-						<img src="react-plyer/app/images/1.jpeg" alt="个人头像" />
+						<img src="app/images/1.jpeg" alt="个人头像" />
 						<span className="indexName">柚子音乐播放器</span>
 					</p>
-					<p className="indexBtn"><i className="icon-music"></i><a href="/react-plyer/#music">Come on &gt;&gt;</a></p>
+					<p className="indexBtn"><i className="icon-music"></i><a href="/JQM-me/react-player/#music">Come on &gt;&gt;</a></p>
 				</article>
 			</div>
 		);
@@ -26,7 +26,7 @@ var Index = React.createClass({
 var ImgBg = React.createClass({
 	render : function() {
 		return (
-			<img id="imgBg" className="dim" src="/app/images/bg.jpg" alt="" />
+			<img id="imgBg" className="dim" src="app/images/bg.jpg" alt="" />
 		);
 	}
 }); 
