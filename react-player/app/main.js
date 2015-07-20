@@ -13,7 +13,7 @@ var Index = React.createClass({
 				<ImgBg />
 				<article className="indexBg">
 					<p className="indexMe">
-						<img src="app/images/1.jpeg" alt="个人头像" />
+						<img src="http://7xkinp.com1.z0.glb.clouddn.com/1.jpeg" alt="个人头像" />
 						<span className="indexName">柚子音乐播放器</span>
 					</p>
 					<p className="indexBtn"><i className="icon-music"></i><a href="/JQM-me/react-player/#music">Come on &gt;&gt;</a></p>
