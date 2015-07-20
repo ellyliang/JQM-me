@@ -26,7 +26,7 @@ var Index = React.createClass({
 var ImgBg = React.createClass({
 	render : function() {
 		return (
-			<img id="imgBg" className="dim" src="app/images/bg.jpg" alt="" />
+			<img id="imgBg" className="dim" src="http://7xkinp.com1.z0.glb.clouddn.com/bg.jpg" alt="" />
 		);
 	}
 }); 
