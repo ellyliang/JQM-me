@@ -1,7 +1,0 @@
-<MKM version="2.0" minAppVer="2.0.0" imageFileUrl="">
-  <Marks>
-    <ColorMark x="28" y="145" color="16711680" offsetX="25" offsetY="10" defaultDirection="9" colorSystem="hex"/>
-    <ColorMark x="59" y="184" color="16711680" offsetX="25" offsetY="10" defaultDirection="9" colorSystem="hex"/>
-    <ColorMark x="203" y="119" color="16711680" offsetX="25" offsetY="10" defaultDirection="9" colorSystem="hex"/>
-  </Marks>
-</MKM>
