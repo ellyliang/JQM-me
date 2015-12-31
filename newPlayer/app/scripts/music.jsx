@@ -97,7 +97,7 @@ class MusicButton extends React.Component {
           remainTimeSec = '0'+remainTimeSec;
         }
         remainTimeInfo = remainTimeMin + ':' + remainTimeSec;
-        // this.setState({'time': remainTimeInfo});
+        this.setState({'time': remainTimeInfo});
       }
     });
   }
