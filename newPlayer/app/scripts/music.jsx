@@ -159,7 +159,7 @@ class Music extends React.Component {
       <article className="music">
         <nav className="linkToDetail">
           <Link to="Summary">
-            <div className="detailPeople guidePerson"></div>
+            <div className="detailPeople guidePerson">点我~</div>
           </Link>
         </nav>
 

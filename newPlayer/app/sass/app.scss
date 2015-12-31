@@ -179,8 +179,9 @@ body {
   .detailPeople {
     display: inline-block;
     float: right;
-    width: 53px;
+    width: 79px;
     height: 58px;
+    color: #fff!important;
     //margin-right: -52px;
     @include bg("http://7xkinp.com1.z0.glb.clouddn.com/guide.png", right, top, 52px);
   }
