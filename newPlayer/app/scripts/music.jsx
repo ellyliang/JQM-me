@@ -28,7 +28,7 @@ class MusicButton extends React.Component {
     this.setState({'isPlaying': 1});
   }
 
-  _Prev(songLen, cb) {
+  _Prev(songLen, cb) { // 这里的回调是因为setState是异步的
     this.setState({'songIndex': ++this.state.songIndex}, cb);
     if(this.state.songIndex > songLen) {
       this.setState({'songIndex': 0}, cb);
