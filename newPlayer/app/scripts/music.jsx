@@ -126,8 +126,8 @@ class MusicButton extends React.Component {
 
     return (
       <article className="musicContent">
+        <audio ref="audio" src={this.state.song} />
         <header className="musicHeader">
-          <audio ref="audio" src={this.state.song} />
           <span className="iconMusic icon-backward" onClick={this.onNextBtn.bind(this)}></span>
           <span className={classString} onClick={this.onPlayBtn.bind(this)}></span>
           <span className="iconMusic icon-forward" onClick={this.onPrevBtn.bind(this)}></span>
@@ -159,7 +159,7 @@ class Music extends React.Component {
       <article className="music">
         <nav className="linkToDetail">
           <Link to="Summary">
-            <div className="detailPeople guidePerson">点我~</div>
+            <div className="detailPeople guidePerson">总结~</div>
           </Link>
         </nav>
 
