@@ -94,8 +94,8 @@ class MusicButton extends React.Component {
 
       if(!isNaN(audioNode.duration)) {
         remainTime = audioNode.duration - audioNode.currentTime;
-        remainTimeMin = parseInt(remainTime/60);  // 剩余分
-        remainTimeSec = parseInt(remainTime%60);  // 剩余秒
+        remainTimeMin = parseInt(remainTime/60);
+        remainTimeSec = parseInt(remainTime%60);
 
         if(remainTimeSec < 10) {
           remainTimeSec = '0'+remainTimeSec;
