@@ -5,91 +5,95 @@ import {Router, Route, Link} from 'react-router';
 import List from './data.jsx';
 
 class MusicButton extends React.Component {
-  constructor(props) {       // getInitialState is not used in ES6 classes. Instead assign this.state in the constructor
-    super(props);            // 调用父类
+
+  constructor(props) {
+    super(props);
 
     this.state = {
-      index : 0,             // 播放索引
-      music : List[0].url,   // 这个不这么玩的，我本来想做成接口，通过请求接口，返回数据，后续有时间再完善吧....
-      flag : 1,              // 标识播放状态，当前状态为停止，否则播放
-      time : '0.00'          // 播放时间
+      song : List[0].url,
+      isPlaying: 1,
+      songIndex: 0,
+      time: '0:00',
+      isTimeupdate: 1
     };
   }
-  // 播放&暂停音乐
-  musicPlay() {
-    let audio = this.refs.audio;  // 获取audio dom
 
-    if(this.state.flag) {
-      audio.play();               // audio api play
-      this.setState({'flag': 0});
-    } else {
-      audio.pause();              // audio api pause
-      this.setState({'flag': 1});
+  _Play(audio) {
+    this.setState({'isPlaying': 0}, () => {
+      audio.play();
+    });
+  }
+  _Pause(audio) {
+    audio.pause();
+    this.setState({'isPlaying': 1});
+  }
+
+  _Prev(songLen, cb) {
+    this.setState({'songIndex': ++this.state.songIndex}, cb);
+    if(this.state.songIndex > songLen) {
+      this.setState({'songIndex': 0}, cb);
     }
   }
-  // 播放前一首
-  musicBackward() {
-    this.musicPlayFunc((audio, musicLen) => {
-      this.setState({'index': --this.state.index});
-      if(this.state.index < 0) {
-        this.setState({'index': musicLen});
-      }
+
+  _Next(songLen, cb) {
+    this.setState({'songIndex': --this.state.songIndex}, cb);
+    if(this.state.songIndex < 0) {
+      this.setState({'songIndex': songLen}, cb);
+    }
+  }
+
+  _currSong(index) {
+    this.setState({'song': List[index].url});
+  }
+
+  _endedPlay(songLen, cb) {
+    if(+this.state.songIndex === songLen) {
+      this.setState({'songIndex': 0}, cb);
+    } else {
+      this.setState({'songIndex': ++this.state.songIndex}, cb);
+    }
+  }
+
+  onPlayBtn() {
+    let audioNode = this.refs.audio;
+    if(this.state.isPlaying) {
+      this._Play(audioNode);
+    } else {
+      this._Pause(audioNode);
+    }
+  }
+
+  onNextBtn() {
+    let [audioNode, songLen] = [this.refs.audio, List.length-1];
+    this._Next(songLen, () => {
+      this._currSong(this.state.songIndex);
+      this._Play(audioNode);
     });
   }
-  // 播放前首
-  musicForward() {
-    this.musicPlayFunc((audio, musicLen) => {
-      this.setState({'index': ++this.state.index});
-      if(this.state.index > musicLen) {
-        this.setState({'index': 0});
-      }
+
+  onPrevBtn() {
+    let [audioNode, songLen] = [this.refs.audio, List.length-1];
+    this._Prev(songLen, () => {
+      this._currSong(this.state.songIndex);
+      this._Play(audioNode);
     });
   }
-  // 封装播放函数
-  musicPlayFunc(callback) {
-    let audio = this.refs.audio;
-    let musicLen = List.length-1;
+  // 记住你所有的component的手动绑定的事件都在要willUnmout干掉(谢谢百灵鸟^_^)
+  componentDidMount(prevProps, prevState, prevContext) {
+    let [audioNode, songLen] = [this.refs.audio, List.length-1];
 
-    if(callback) callback(audio, musicLen);
-
-    setTimeout(() => {
-      this.setState({'music': List[this.state.index].url});
-      this.setState({'flag': 0}); // 执行播放动画
-      audio.play();
-    }, 0);
-  }
-
-  // 初始化渲染执行之后立刻调用一次
-  componentDidMount() {
-    let audio = this.refs.audio;
-
-    // 循环播放
-    audio.addEventListener('ended', () => { // audio api ended
-      if(+this.state.index === (List.length-1)) {
-        this.setState({'index': 0});
-      } else {
-        this.setState({'index': ++this.state.index});
-      }
-
-      setTimeout(() => {
-        this.setState({'music': List[this.state.index].url});
-        this.setState({'flag': 0}); // 执行播放动画
-        audio.play();
-      }, 0);
+    audioNode.addEventListener('ended', () => {
+      this._endedPlay(songLen, () => {
+        this._currSong(this.state.songIndex);
+        this._Play(audioNode);
+      });
     }, false);
 
-
-    // 剩余播放时间
-    audio.addEventListener('timeupdate', () => {
-      // remainTime    剩余时间
-      // remainTimeMin 剩余分
-      // remainTimeSec 剩余秒
+    let onTimeupdate = () => {
       let [remainTime, remainTimeMin, remainTimeSec, remainTimeInfo] = [];
 
-      // audio.duration    音乐总时间
-      // audio.currentTime 音乐当前时间
-      if(!isNaN(audio.duration)) {
-        remainTime = audio.duration - audio.currentTime;
+      if(!isNaN(audioNode.duration)) {
+        remainTime = audioNode.duration - audioNode.currentTime;
         remainTimeMin = parseInt(remainTime/60);  // 剩余分
         remainTimeSec = parseInt(remainTime%60);  // 剩余秒
 
@@ -99,19 +103,22 @@ class MusicButton extends React.Component {
         remainTimeInfo = remainTimeMin + ':' + remainTimeSec;
         this.setState({'time': remainTimeInfo});
       }
-    });
+    };
+
+    audioNode.addEventListener('timeupdate', onTimeupdate, false);
+
+    this.cleanup = () => {
+      audioNode.removeEventListener('timeupdate', onTimeupdate, false);
+    };
   }
-  // 记住你所有的component的手动绑定的事件都在要willUnmout干掉(谢谢百灵鸟^_^)
+
   componentWillUnmount () {
-   let audio = this.refs.audio;
-   audio.removeEventListener('timeupdate');
-   audio.removeEventListener('ended');
+    this.cleanup();
   }
 
   render() {
-    // 控制播放按钮的的动画效果，这里用了es6的解构来装了下逼....
     let [classString, defaultClass, playClass] = ['', 'iconMusic icon-pause', ' rotate'];
-    if(!this.state.flag) {
+    if(!this.state.isPlaying) {
       classString = defaultClass + playClass;
     } else {
       classString = defaultClass;
@@ -120,20 +127,19 @@ class MusicButton extends React.Component {
     return (
       <article className="musicContent">
         <header className="musicHeader">
-          <audio ref="audio" src={this.state.music} />
-          <span className="iconMusic icon-backward" onClick={this.musicBackward.bind(this)}></span>
-          <span className={classString} onClick={this.musicPlay.bind(this)}></span>
-          <span className="iconMusic icon-forward" onClick={this.musicForward.bind(this)}></span>
+          <audio ref="audio" src={this.state.song} />
+          <span className="iconMusic icon-backward" onClick={this.onNextBtn.bind(this)}></span>
+          <span className={classString} onClick={this.onPlayBtn.bind(this)}></span>
+          <span className="iconMusic icon-forward" onClick={this.onPrevBtn.bind(this)}></span>
         </header>
 
-        <MusicContent musicInfo={List} musicIndex={this.state.index} timeInfo={this.state.time}/>
+        <MusicContent musicInfo={List} musicIndex={this.state.songIndex} timeInfo={this.state.time}/>
       </article>
-    );
+    )
   }
 }
 
 class MusicContent extends React.Component {
-
   render() {
     let [musicCurr, musicListInfo] = [this.props.musicIndex, this.props.musicInfo];
 
