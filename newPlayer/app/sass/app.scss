@@ -1,0 +1,273 @@
+$primaryColor : #333;
+$whiteColor : #fff;
+$grayColor : #423834;
+
+@mixin size($width, $height) {
+  width : $width;
+  height : $height;
+}
+
+@mixin bg($img, $left, $top, $size) {
+  background-image: url($img);
+  background-repeat: no-repeat;
+  background-position: $left $top;
+  background-size: $size;
+}
+
+@font-face {
+  font-family: "icomoon";
+  src:url("../fonts/icomoon.eot?-32qlpk");
+  src:url("../fonts/icomoon.eot?#iefix-32qlpk") format("embedded-opentype"),
+    url("../fonts/icomoon.woff?-32qlpk") format("woff"),
+    url("../fonts/icomoon.ttf?-32qlpk") format("truetype"),
+    url("../fonts/icomoon.svg?-32qlpk#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-music:before {
+  content: "\e600";
+}
+.icon-play:before {
+  content: "\e601";
+}
+.icon-backward:before {
+  content: "\e603";
+}
+.icon-forward:before {
+  content: "\e604";
+}
+.icon-volume-medium:before {
+  content: "\e605";
+}
+.icon-volume-mute:before {
+  content: "\e606";
+}
+.icon-loop:before {
+  content: "\e607";
+}
+.icon-loop2:before {
+  content: "\e608";
+}
+.icon-shuffle:before {
+  content: "\e609";
+}
+.icon-vynil:before {
+  content: "\e60a";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color : $primaryColor;
+  font-family: 'Microsoft Yahei','Helvetica Neue',sans-serif,SimHei;
+  overflow-x: hidden;
+  background: $grayColor;
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0); /*解决背景闪的bug*/
+}
+
+//index
+.indexBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include size(100%, 100%);
+  text-align: center;
+  z-index: 99;
+
+  .indexMe {
+    margin: 30% auto 0;
+    padding: 10px 0;
+
+    img {
+      display: block;
+      width: 100px;
+      margin: 0 auto;
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+
+    .indexName {
+      display: block;
+      margin-top: 10px;
+    }
+  }
+
+  p {
+    font-size: 18px;
+    color: #fff;
+  }
+
+  .indexBtn {
+    position: absolute;
+    //bottom: 0;
+    width: 100%;
+    margin-bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+
+    i {
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    a {
+      display: inline-block;
+      padding: 15px 0;
+      text-decoration: none;
+      color: #fff;
+      vertical-align: middle;
+    }
+  }
+}
+
+//背景模糊效果
+.dim {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include size(100%, 100%);
+  //-webkit-filter: blur(2px);
+  //filter: blur(2px);
+  z-index: 9;
+  overflow: hidden;
+}
+
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  color: $whiteColor;
+}
+
+.music {
+  @include size(100%, 100%);
+  overflow: hidden;
+
+  .linkToDetail {
+    position: absolute;
+    right: 0;
+    top: 0;
+    @include size(193px, 58px);
+
+    span {
+      display: inline-block;
+      font-size: 14px;
+      color: $whiteColor;
+      line-height: 58px;
+    }
+  }
+
+  .detailPeople {
+    display: inline-block;
+    float: right;
+    width: 53px;
+    height: 58px;
+    //margin-right: -52px;
+    @include bg("/app/images/guide.png", right, top, 52px);
+  }
+}
+
+.musicContent {
+  margin-top: 12%;
+  overflow: hidden;
+
+  .musicHeader {
+    margin: 10px 10px 0 10px;
+    padding: 10px 0;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .musicList {
+    @include size(233px, 200px);
+    margin: -38px auto 0px;
+    text-align: center;
+    padding-top: 40px;
+    background: gradient(linear, 0 0, 0 100%, from(#f2a489), to(#f68379));
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#f2a489), to(#f68379));
+    border-radius: 50%;
+    border: 5px solid rgba(0, 0, 0, .9);
+
+    p {
+      padding-top: 20px;
+    }
+  }
+
+  .iconMusic {
+    display: inline-block;
+    @include size(60px, 60px);
+    margin: 4%;
+    line-height: 60px;
+    font-size: 31px;
+    text-align: center;
+    border: 5px solid rgba(0, 0, 0, .9);
+    border-radius: 50%;
+    background: gradient(linear, 0 0, 0 100%, from(#f2a489), to(#f68379));
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#f2a489), to(#f68379));
+  }
+
+  .icon-pause {
+    @include size(70px, 70px);
+    @include bg("http://7xkinp.com1.z0.glb.clouddn.com/music.png", 0, 0, 100%);
+  }
+
+  .rotate {
+    -webkit-animation: spin 8s infinite linear;
+  }
+}
+.guidePerson {
+  -webkit-animation: move 3s cubic-bezier(0.46, 0.03, 0.52, 0.96) 1 alternate;
+}
+
+
+.summaryContent {
+  padding: 0 10px 0 10px;
+  font-size: 14px;
+  color: $whiteColor;
+  // background: $whiteColor;
+}
+
+
+@-webkit-keyframes move {
+  0% {
+    margin-right: -52px;
+  }
+  100% {
+    margin-right: 0;
+  }
+}
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+@-o-keyframes spin {
+    0% { -o-transform: rotate(0deg); }
+    100% { -o-transform: rotate(360deg); }
+}
+@-ms-keyframes spin {
+    0% { -ms-transform: rotate(0deg); }
+    100% { -ms-transform: rotate(360deg); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
