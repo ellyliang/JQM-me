@@ -166,7 +166,7 @@ class Music extends React.Component {
         <MusicButton />
 
         <article>
-          <footer className="footer">powered by elly.</footer>
+          <footer className="footer">powered by youzi.</footer>
         </article>
       </article>
     )
