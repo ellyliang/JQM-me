@@ -53,6 +53,6 @@ npm install
 
 安装完http server后，在终端中指定到/newPlayer目录下，执行http-server就可以运行起柚子播放器了。
 
-
-
 欢迎大家给我提ISSUE，指出代码的不是，或是有待优化的地方
+
+对了，index.html的script中路径需改下，不然可能会报app.js 404
