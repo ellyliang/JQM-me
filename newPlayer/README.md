@@ -51,7 +51,7 @@ npm install
 
 这里需说明下，我没有在webpack+gulp配server，我用的是[http-server](https://github.com/indexzero/http-server)
 
-安装完http server后，在终端中指定到/newPlayer目录下，执行http-server就是运行起柚子播放器了。
+安装完http server后，在终端中指定到/newPlayer目录下，执行http-server就可以运行起柚子播放器了。
 
 
 
