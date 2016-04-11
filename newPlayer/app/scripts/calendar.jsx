@@ -74,7 +74,7 @@ class Calendar extends React.Component {
   render() {
     let [dayArr, startDayArr, dayLiNode, startDayLiNode, calendarFirstDays, liStyle, date, formatDate] = [[], [], '', '', this.state.date, '', '', ''];
 
-    date = (this.state.month <= 10) ? ('0'+(this.state.month+1)) : (this.state.month+1);
+    date = (this.state.month < 9) ? ('0'+(this.state.month+1)) : (this.state.month+1);
     formatDate = this.state.year + '年' + date + '月' + this.state.date + '日';
 
     for(var i=0, len=this.calculateDays(this.state.year, this.state.month); i<len; i++) {
