@@ -104,6 +104,15 @@ html {
 	color: #E01F90;
 	font-weight: bold;
 }
+.calendar .calendarJQ {
+  text-align: center;
+}
+.calendar .calendarJQ a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #E01F90;
+}
 .footer {
 	position: absolute;
 	bottom: 0;
