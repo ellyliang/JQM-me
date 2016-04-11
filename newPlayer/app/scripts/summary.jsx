@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Markdown2HTML from 'react-markdown-to-html';
-
 require('!style!css!sass!../sass/markdown.css');
 
 class Summary extends React.Component {

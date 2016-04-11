@@ -1,0 +1,114 @@
+* {
+	margin: 0;
+	padding: 0;    
+	font-family: -apple-system-font, "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
+body,
+html {
+	height: 100%;
+	background-color: #F9D7EA;
+}
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+.calendar {
+	width: 100%;
+	height: 100%;
+}
+.calendar .yz-days {
+	margin-left: 2%;
+}
+.calendar li {
+	width: 14%;
+    list-style: none;
+    display: inline-block;
+    color: #E01F90;
+}
+.calendar .calendar-header {
+	height: 50px;
+	line-height: 50px;
+	border-bottom: 3px solid #E01F90;
+	text-align: center;
+	position: relative;
+}
+.calendar .calendar-header .icon-yz {
+	display: inline-block;
+    width: 62px;
+    height: 53px;
+    background: url(yz.png) 0 0 no-repeat;
+    background-size: 100%;
+    vertical-align: middle;
+}
+.calendar .triangle-left {
+	position: absolute;
+    width: 0;
+    height: 0;
+    top: 16px;
+    left: 16px;
+    border-top: 10px solid transparent;
+    border-right: 20px solid #E01F90;
+    border-bottom: 10px solid transparent;
+    cursor: pointer;
+}
+.calendar .triangle-right {
+	position: absolute;
+    width: 0;
+    height: 0;
+   	top: 16px;
+    right: 16px;
+    border-top: 10px solid transparent;
+    border-left: 20px solid #E01F90;
+    border-bottom: 10px solid transparent;
+    cursor: pointer;
+}
+.calendar .calendar-day li {
+    height: 45px;
+    line-height: 45px;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: bottom;
+    color: #94898F;
+}
+.calendar .calendar-day li:hover {
+	// background-color: #F9F7F7;
+	cursor: pointer;
+}
+.calendar .weekday {
+	padding: 10px 0;
+}
+.calendar .weekday li {
+	height: 19px;
+	text-align: center;
+	margin-left: -4px;
+}
+.calendar .calendarInput {
+	padding: 20px 10px;
+	margin-top: 20px;
+	border-top: 3px solid #E01F90;
+}
+.calendar .calendarInput input {
+	box-sizing: border-box;
+	width: 100%;
+	height: 40px;
+	padding: 5px;
+	text-align: center;
+	border-radius: 5px;
+	border: 1px solid #94898F;
+}
+.calendar .calendar-day li.current {
+	background-color: #fff;
+	color: #E01F90;
+	font-weight: bold;
+}
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 10px 0;
+	color: #94898F;
+	text-align: center;
+}

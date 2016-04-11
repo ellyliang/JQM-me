@@ -1,6 +1,7 @@
 $primaryColor : #333;
 $whiteColor : #fff;
 $grayColor : #423834;
+$grayBlue : #094294;
 
 @mixin size($width, $height) {
   width : $width;
@@ -75,11 +76,16 @@ $grayColor : #423834;
   padding: 0;
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   color : $primaryColor;
   font-family: 'Microsoft Yahei','Helvetica Neue',sans-serif,SimHei;
   overflow-x: hidden;
-  background: $grayColor;
+  background-color: #F5F5F5;
   -webkit-tap-highlight-color: rgba(255, 0, 0, 0); /*解决背景闪的bug*/
 }
 
@@ -137,6 +143,15 @@ body {
   }
 }
 
+// animation
+.plane {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+}
+
 //背景模糊效果
 .dim {
   display: block;
@@ -159,7 +174,10 @@ body {
 }
 
 .music {
+  position: absolute;
+  top: 0;
   @include size(100%, 100%);
+  background-color: $grayColor;
   overflow: hidden;
 
   .linkToDetail {
@@ -243,10 +261,8 @@ body {
 .summaryContent {
   padding: 0 10px 0 10px;
   font-size: 14px;
-  color: $whiteColor;
-  // background: $whiteColor;
+  color: #333;
 }
-
 
 @-webkit-keyframes move {
   0% {
@@ -271,4 +287,18 @@ body {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+// cat
+.cat {
+  width: 400px;
+  height: 400px;
+  background-color: #99cccc;
+  .catHeader {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #c4ad7d;
+    border-radius: 50%;
+    background-color: $whiteColor;
+  }
 }

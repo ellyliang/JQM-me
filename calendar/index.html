@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>柚子日历</title>
+	<link rel="stylesheet" type="text/css" href="yzCalendar.css">
+</head>
+<body>
+	<div class="calendar clearfix" id="jYzCalendar">
+		<div class="calendar-header">
+			<p>
+				<span class="icon-yz"></span>
+				<span class="yz-years">2016</span>
+				<span>年</span>
+				<span class="yz-months">4</span>
+				<span>月</span>
+			</p>
+			<p class="triangle-left"> </p>
+			<p class="triangle-right"> </p>
+		</div>
+		<div>
+			<div class="weekday">
+				<ul>
+					<li>日</li>
+					<li>一</li>
+					<li>二</li>
+					<li>三</li>
+					<li>四</li>
+					<li>五</li>
+					<li>六</li>
+				</ul>
+			</div>
+			<div class="calendar-day">
+				<ul class="yz-days"></ul>
+			</div>
+		</div>
+
+		<div class="calendarInput">
+			<input type="text" name="calendar" readonly="readonly" id="jYzInput"/>
+		</div>
+
+		<footer class="footer">
+			powered by youzi.
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="jquery-1.9.0.js"></script>
+	<script type="text/javascript" src="calendar.js"></script>
+</body>
+</html>
