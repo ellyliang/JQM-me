@@ -130,7 +130,7 @@ class Calendar extends React.Component {
           <input type="text" name="calendar" readOnly="readOnly" value={formatDate}/>
         </div>
 
-        <p className="calendarJQ"><a href="">闲的慌，搞了个JQuery版本 &gt;&gt;</a></p>
+        <p className="calendarJQ"><a href="http://www.uselessblog.cn/JQM-me/calendar/">闲的慌，搞了个JQuery版本 &gt;&gt;</a></p>
 
         <article>
           <footer className="footer">powered by youzi.</footer>
