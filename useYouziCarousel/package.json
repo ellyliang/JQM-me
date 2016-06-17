@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "webpack": "^1.13.1",
-    "youzi_carousel": "^2.0.1"
+    "youzi_carousel": "^2.0.3"
   }
 }

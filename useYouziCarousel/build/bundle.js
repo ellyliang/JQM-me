@@ -80,6 +80,8 @@
 	}
 	];
 
+	alert(123);
+
 	new carousel({
 		dom: document.getElementById('jCarousel'),
 		data: list
@@ -106,6 +108,8 @@
 		this.scaleW = window.innerWidth;
 		// 当前图片的索引
 		this.idx = 0;
+		// 保证图片只累加一次
+		this.imgFlag = 0;
 	};
 
 	Carousel.prototype.renderDom = function() {
@@ -117,25 +121,15 @@
 		// 创建UL
 		this.outer = document.createElement('ul');
 		this.outer.className = 'ui-carousel-wrapper';
-
-		for(var i=0; i<len; i++) {
-			var item = data[i];
-			if(item) {
-				// 创建LI
-				var li = document.createElement('li');
-				li.className += 'ui-carousel-item';
-				li.style.width = scale + 'px';
-				li.style.height = window.innerHeight + 'px';
-				li.style.webkitTransform = 'translate3d('+(i*scale)+'px, 0, 0)';
-				// 处理图片
-				// if(opts.height/opts.width > self.radio) {	// y形图片
-					li.innerHTML = '<img class="ui-carousel-img" src="'+ item.img +'" />';
-				// } else {									// x形图片
-					// li.innerHTML = '<img src="'+ opts.img +'" style="width:'+ window.innerWidth +'px"/>';
-				// }
-				self.outer.appendChild(li);
+	 
+		var initLi = function(index) {
+			if(data[index] && index < 3) { // 默认只展示3张
+				self.setImage(index, function(index) {
+					initLi(index + 1);
+				});
 			}
-		}
+		};
+		initLi(0);
 
 		this.outer.style.width = scale + 'px';
 		this.outer.style.height = window.innerHeight + 'px';
@@ -159,6 +153,7 @@
 			var lis = outer.getElementsByTagName('li');
 			var i = self.idx - 1;
 			var m = i + 3;
+
 			for(i; i<m; i++) {
 				lis[i] && (lis[i].style.webkitTransform = 'translate3d('+ ((i-self.idx) * scale + self.offsetX) +'px, 0, 0)');
 			}
@@ -193,10 +188,14 @@
 	};
 
 	Carousel.prototype.go = function(n) {
-		var idx = this.idx,
+		var self = this,
+			idx = this.idx,
+			data = this.data,
+			scale = this.scaleW,
+			outer = this.outer,
 			cidx,
 			lis = this.outer.getElementsByTagName('li'),
-			length = lis.length;
+			length = 3;
 
 		if(typeof n == 'number') {
 			cidx = idx;
@@ -204,35 +203,63 @@
 			cidx = idx + n * 1;
 		}
 
-		if(cidx > length - 1) {
-			cidx = length - 1;
+		if(+n == '-1') {
+			this.imgFlag = 1;
+		}
+
+		if(cidx > data.length-1) {
+			cidx = data.length-1;
 		} else if(cidx < 0) {
 			cidx = 0;
+		}
+		var i = idx + 2;
+		var m = i++;
+		if(cidx > 1 && !this.imgFlag) {
+			var initLi = function(index) {
+				if(index !== 2 && m < data.length) { // 默认只展示3张
+					self.setImage(index);
+				}
+			};
+			initLi(cidx+1);
 		}
 
 		this.idx = cidx;
 
-		lis[cidx].style.webkitTransition = '-webkit-transform 0.2s ease-out';
-		lis[cidx-1] && (lis[cidx-1].style.webkitTransition = '-webkit-transform 0.2s ease-out');
-		lis[cidx+1] && (lis[cidx+1].style.webkitTransition = '-webkit-transform 0.2s ease-out');
+		if(cidx < data.length) {
+			lis[cidx].style.webkitTransition = '-webkit-transform 0.2s ease-out';
+			lis[cidx-1] && (lis[cidx-1].style.webkitTransition = '-webkit-transform 0.2s ease-out');
+			lis[cidx+1] && (lis[cidx+1].style.webkitTransition = '-webkit-transform 0.2s ease-out');
 
-		lis[cidx].style.webkitTransform = 'translate3d(0, 0, 0)';
-		lis[cidx-1] && (lis[cidx-1].style.webkitTransform = 'translate3d(-'+ this.scaleW +'px, 0, 0)');
-		lis[cidx+1] && (lis[cidx+1].style.webkitTransform = 'translate3d('+ this.scaleW +'px, 0, 0)'); 
+			lis[cidx].style.webkitTransform = 'translate3d(0, 0, 0)';
+			lis[cidx-1] && (lis[cidx-1].style.webkitTransform = 'translate3d(-'+ this.scaleW +'px, 0, 0)');
+			lis[cidx+1] && (lis[cidx+1].style.webkitTransform = 'translate3d('+ this.scaleW +'px, 0, 0)'); 
+		}
 	};
 
-	// Carousel.prototype.getImgWh = function(img, callback) {
-	// 	var image = new Image(),
-	// 		imgOpts = {};
-	// 	imgOpts.img = img;
-	// 	image.onload = function() {
-	// 		imgOpts.width = image.width;
-	// 		imgOpts.height = image.height;
+	Carousel.prototype.setImage = function(index, callback) {
+		var img = new Image(),
+			li = document.createElement('li'),
+			self = this,
+			scale = this.scaleW,
+			data = this.data;
 
-	// 		callback && callback(imgOpts);
-	// 	};
-	// 	image.src = img;
-	// };
+		li.className += 'ui-carousel-item';
+		li.style.width = scale + 'px';
+		li.style.height = window.innerHeight + 'px';
+		li.style.webkitTransform = 'translate3d('+(index*scale)+'px, 0, 0)';
+		img.onload = function() {
+			// 处理图片
+			if(img.height/img.width > self.radio) {	    // y形图片
+				li.innerHTML = '<img src="'+ data[index].img +'" style="height:'+ window.innerHeight +'px"/>';
+			} else {									// x形图片
+				li.innerHTML = '<img src="'+ data[index].img +'" style="width:'+ window.innerWidth +'px"/>';
+			}
+
+			callback && callback(index);
+		};
+		img.src = data[index].img;
+		self.outer.appendChild(li);
+	};
 
 	module.exports = Carousel;
 

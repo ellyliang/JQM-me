@@ -1,4 +1,4 @@
-var carousel = require('../index.js');
+var carousel = require('youzi_carousel');
 
 //所有的数据
 var list = [{
@@ -26,6 +26,8 @@ var list = [{
 	img: "images/8.png",
 }
 ];
+
+alert(123);
 
 new carousel({
 	dom: document.getElementById('jCarousel'),
